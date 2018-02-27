@@ -5,7 +5,7 @@
     this.modeData = ko.observableArray();
     this.bandData = ko.observableArray();
     this.refData = ko.observableArray();
-    this.isWwffOnly = ko.observable(true);
+    this.isWwffOnly = ko.observable(false);
 
     this.totalQSO = ko.observable(0);
     this.uniqueCall = ko.observable(0);
@@ -60,7 +60,7 @@
         var modeOptions = {
             width: '100%',
             height: 300,
-            colors: ['#ff2222', '#22ff22', '#2222ff', '#ffff22', '#22ffff', '#ff22ff']
+            colors: ['#3366ff', '#ff5050', '#663300', '#33cc33', '#33cccc', '#ff00ff', '#ff6600']
         };
         //*************************** band ***************************/
         Enumerable.From(linkList()).Where(whereClause).Select("$.band").Distinct().OrderBy().ForEach(function (s, index) {
@@ -75,15 +75,15 @@
         }
         var bandOptions = {
             width: '100%',
-            height: 300,
-            colors: ['#cc66cc', '#66cccc', '#cccc66', '#1111cc', '#66cc66', '#cc6666', '#fc6c6c']
+            height: 300,            
+            colors: ['#000066', '#660066', '#993333', '#663300', '#003300', '#003366', '#6600cc', '#993300', '#339966']
         };
         //*************************** ref ***************************/
 
-        refData.push(['Referene', 'QSOs']);
-        Enumerable.From(linkList()).Where(whereClause).Select("$.wwff_ref").OrderBy().Distinct().ForEach(function (s, index) {
-            var count = Enumerable.From(linkList()).Where(function (x) { return x.wwff_ref == s }).Where(whereClause).ToArray().length;
-            if (s == null) s = "Non WWFF"
+        refData.push(['Station', 'QSOs']);
+        Enumerable.From(linkList()).Where(whereClause).Select("$.my_call").OrderBy().Distinct().ForEach(function (s, index) {
+            var count = Enumerable.From(linkList()).Where(function (x) { return x.my_call == s }).Where(whereClause).ToArray().length;
+            if (s == null) s = " "
             refData.push([s, count]);
         })
 
@@ -98,7 +98,7 @@
                          }]);
 
         var refOptions = {
-            title: "QSOs per Reference",
+            title: "QSOs per Station",
             //width: "100%",
             height: 500,
             bar: { groupWidth: "95%" },
