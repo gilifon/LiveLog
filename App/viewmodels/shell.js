@@ -24,7 +24,7 @@
         lang:lang,
         activate: function () {
             router.map([
-                { route: '', title: 'KDlog', moduleId: 'viewmodels/kdlog', nav: true },
+                { route: '', title: 'IARC', moduleId: 'viewmodels/kdlog', nav: true },
                 { route: 'Audit', title: 'Audit', moduleId: 'viewmodels/kdaudit', nav: true },
                 { route: 'Statistics', title: 'Statistics', moduleId: 'viewmodels/kdstatistics', nav: true },
                 

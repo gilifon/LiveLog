@@ -140,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\services\holylandUtility.js" />
-    <Content Include="App\main-built.js" />
     <Content Include="App\main.js" />
     <Content Include="App\services\cachingService.js" />
     <Content Include="App\services\displayService.js" />
