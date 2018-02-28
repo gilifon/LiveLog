@@ -1322,6 +1322,17 @@ ul.blog-tags a:hover i {
    background: #000000;
 }
 
+/*Panel Black*/
+.panel-gold {
+   border-color: #996600;
+}
+
+.panel-gold > .panel-heading {
+   color: #fff;
+   background: #996600;
+}
+
+
 /*Promo Page
 ------------------------------------*/
 /*Slider Part*/
