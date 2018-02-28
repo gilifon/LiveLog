@@ -683,6 +683,10 @@
     <Content Include="assets\flags\flags\4x3\zz.svg" />
     <Content Include="assets\img\cert_example.png" />
     <Content Include="assets\img\english.png" />
+    <Content Include="assets\img\iarc_logo.png" />
+    <Content Include="assets\img\iarc_logo_small.png" />
+    <Content Include="assets\img\israel70.jpg" />
+    <Content Include="assets\img\israel70.png" />
     <Content Include="assets\img\israel_map.jpg" />
     <Content Include="assets\img\iarc.png" />
     <Content Include="assets\img\iarc_logo.gif" />
