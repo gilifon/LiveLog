@@ -24,7 +24,7 @@
 
     var that = this;
 
-    this.GetWokedSections = function () {
+    this.GetWorkedSections = function () {
         if (callsign() == "") return;
         $.ajax({
             type: "POST",
@@ -169,7 +169,7 @@
         },
         compositionComplete: function () {
             jwerty.key('enter', function () {
-                GetWokedSections();
+                GetWorkedSections();
             }, that);
         },
         statisticsList: statisticsList,
