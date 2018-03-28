@@ -22,6 +22,12 @@
     this.israelL = ko.observableArray();
     this.israelJ = ko.observableArray();
 
+    this.isEligable = ko.observable(false);
+    this.ssbEndorsment = ko.observable(false);
+    this.cwEndorsment = ko.observable(false);
+    this.digiEndorsment = ko.observable(false);
+    this.mixEndorsment = ko.observable(false);
+
     var that = this;
 
     this.GetWorkedSections = function () {
@@ -31,25 +37,40 @@
             url: "./Server/GetLogForCall.php",
             data: { 'info': { 'call': callsign() } }
         }).done(function (data) {
-            linkList(data);
 
-            israelI(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70I" }).ToArray());
-            israelS(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70S" }).ToArray());
-            israelR(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70R" }).ToArray());
-            israelA(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70A" }).ToArray());
-            israelE(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70E" }).ToArray());
-            israelL(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70L" }).ToArray());
-            israelJ(Enumerable.From(data).Where(function (x) { return x.my_call == "4X70IARC" }).ToArray());
+            if (data.data == "")
+            {
+                linkList([]);
+                didNotWork(true);
+                isEligable(false);
+                return;
+            }
+            linkList(data.data);
 
+            israelI(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70I" }).ToArray());
+            israelS(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70S" }).ToArray());
+            israelR(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70R" }).ToArray());
+            israelA(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70A" }).ToArray());
+            israelE(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70E" }).ToArray());
+            israelL(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70L" }).ToArray());
+            israelJ(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4Z70IARC" }).ToArray());
+
+            ssbEndorsment(data.eligability.SSB == 1);
+            cwEndorsment(data.eligability.CW == 1);
+            digiEndorsment(data.eligability.DIGI == 1);
+            mixEndorsment(data.eligability.MIX == 1);
+
+            isEligable(ssbEndorsment() || cwEndorsment() || digiEndorsment() || mixEndorsment());
 
             didNotWork(false);
         }).error(function (xhr, ajaxOptions, thrownError) {
             //alert(jQuery.parseJSON(xhr.responseText).error);
             linkList([]);
             didNotWork(true);
+            isEligable(false);
         });
     }
-
+    
     this.IsSectionExist = function(section)
     {
         var queryResult = Enumerable.From(linkList).Where(function (x) { return x.section == section }).ToArray();
@@ -182,7 +203,12 @@
         israelL: israelL,
         israelJ: israelJ,
         callsign: callsign,
-        didNotWork:didNotWork,
+        isEligable: isEligable,
+        ssbEndorsment: ssbEndorsment,
+        cwEndorsment: cwEndorsment,
+        digiEndorsment: digiEndorsment,
+        mixEndorsment: mixEndorsment,
+        didNotWork: didNotWork,
         shell: shell
     };
 

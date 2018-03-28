@@ -7,7 +7,7 @@
     <p>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
-                <input class="form-control" data-bind="value: callsign, valueUpdate: 'afterkeydown'" placeholder="Your Callsign" type="text" tabindex="1" />
+                <input class="form-control" data-bind="value: callsign, valueUpdate: 'afterkeydown'" placeholder="Your Callsign" type="text" tabindex="1" style="text-transform: uppercase;" />
             </div>
             <div class="col-md-2 col-sm-3 col-xs-3">
                 <button id="CheckBtn" data-bind="click: GetWorkedSections" type="button" class="btn btn-info"><span class="glyphicon glyphicon-certificate"></span> Check</button>
@@ -244,6 +244,20 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div data-bind="visible:isEligable">
+        
+        <form method="post" action="/ws/certgen70.php" target="_blank">
+            <div style="display:none">
+                <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
+                <input type="text" class="form-control" id="cw" name="cw" data-bind="value: cwEndorsment" style="visibility:hidden;">
+                <input type="text" class="form-control" id="ssb" name="ssb" data-bind="value: ssbEndorsment" style="visibility:hidden;">
+                <input type="text" class="form-control" id="digi" name="digi" data-bind="value: digiEndorsment" style="visibility:hidden;">
+                <input type="text" class="form-control" id="mix" name="mix" data-bind="value: mixEndorsment" style="visibility:hidden;">
+            </div>
+            <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Certificate</button>
+        </form>
+        
     </div>
     <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
     <div class="margin-top-40">
