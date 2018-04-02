@@ -948,6 +948,8 @@
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
+    <Content Include="Server\db_holylanddb.inc" />
+    <Content Include="Server\error.inc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -958,10 +960,18 @@
     <Content Include="Views\Web.config" />
     <Content Include="weyland-config.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Server\AddLog.php" />
+    <Content Include="Server\adif_parser.php" />
+    <Content Include="Server\Delete.php" />
+    <Content Include="Server\error_log" />
+    <Content Include="Server\GetAllLog.php" />
+    <Content Include="Server\GetAudit.php" />
+    <Content Include="Server\GetLogForCall.php" />
+    <Content Include="Server\israel70loadadif.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Server\" />
+    <Folder Include="Server\uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
