@@ -12,25 +12,37 @@ function addFileToDB($filename)
 	$p->load_from_file($filename);
 	$p->initialize();
 
-	$query = "INSERT INTO `iarcorg_holylanddb`.`live_log` (`my_call`, `band`, `call`, `freq`, `mode`, `qso_date`) VALUES ";
+	$callsigns = array('4X70I','4X70S','4X70R','4X70A','4X70E','4X70L','4Z70IARC');
+
+	$skips = 0;
+
+	//$query = "INSERT INTO `iarcorg_holylanddb`.`live_log` (`my_call`, `band`, `call`, `freq`, `mode`, `qso_date`) VALUES ";
+	$query = "INSERT INTO `iarcorg_holylanddb`.`log` (`my_call`, `band`, `callsign`, `frequency`, `mode`, `timestamp`) VALUES ";
 	while($record = $p->get_record())
 	{
 		if(count($record) == 0)
 		{
 			break;
 		};
-		$query .= "('".$record["station_callsign"]."','".$record["band"]."','".$record["call"]. "','" .$record["freq"]."','".$record["mode"]."','".$record["qso_date"]."'),";
+		if (in_array(strtoupper($record["station_callsign"]), $callsigns))
+		{
+			$query .= "('".strtoupper($record["station_callsign"])."','".$record["band"]."','".$record["call"]. "','" .$record["freq"]."','".$record["mode"]."','".$record["qso_date"]."'),";
+		}
+		else
+		{
+			$skips++;
+		}
 	};
 	$query = substr($query, 0, -1);
 	$query .= " ON DUPLICATE KEY UPDATE `my_call`=my_call";
 	$result = mysql_query ( $query );	
 	if ($result)
 	{
-		die(json_encode(array('success' => true, 'msg' => 'Thank you for sending the log. 73!')));
+		echo json_encode(array('success' => true, 'msg' => 'Thank you for sending the log. 73!', 'skips' => $skips));
 	}
 	else
 	{
-		die(json_encode(array('success' => false, 'msg' => 'Error: Failed to add QSOs')));
+		echo json_encode(array('success' => false, 'msg' => 'Error: Failed to add QSOs', 'skips' => $skips));
 	}
 }
 
@@ -41,11 +53,11 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 // Check if file already exists
 if (file_exists($target_file)) {
-    return array('success' => false, 'msg' => 'Error: File already exist Change file name and try again.');
+    echo json_encode(array('success' => false, 'msg' => 'Error: File already exist Change file name and try again.'));
 }
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-    return array('success' => false, 'msg' => 'Error: File is too big, only 500k allowed.');
+    echo json_encode(array('success' => false, 'msg' => 'Error: File is too big, only 500k allowed.'));
 }
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
@@ -54,7 +66,7 @@ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
 } 
 else 
 {
-	return array('success' => false, 'msg' => 'Error: Failed loading the file.');
+	echo json_encode(array('success' => false, 'msg' => 'Error: Failed loading the file.'));
 }
 
 /************************************************************************************************************************/

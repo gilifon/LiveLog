@@ -12,18 +12,18 @@ if (isset ( $info ['call'] )) {
 	$call = strtoupper($info ['call']);
 	if (strtolower($call) == "*all*")
 	{
-		$result = mysql_query("select `my_call`,`call`,`band`,`freq`,`mode`,`qso_date`,`time_on` from `live_log` order by `qso_date` desc ,`time_on` desc ") or die('Error: ' . mysql_error());
+		$result = mysql_query("select `my_call`,`callsign`,`band`,`frequency`,`mode`,`timestamp` from `log` order by `timestamp` desc ") or die('Error: ' . mysql_error());
 	}
 	else if(substr( $call, 0, 1 ) == "*")
 	{
 		$call = substr( $call, 1, strlen($call)-1);
-		$result = mysql_query("select `my_call`,`call`,`band`,`freq`,`mode`,`qso_date`,`time_on` from `live_log` where `call` = '$call' order by `qso_date` desc ,`time_on` desc ") or die('Error: ' . mysql_error());
-		$eligability = mysql_query("SELECT (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call') AS 'MIX' ") or die('Error: ' . mysql_error());
+		$result = mysql_query("select `my_call`,`callsign`,`band`,`frequency`,`mode`,`timestamp` from `log` where `callsign` = '$call' order by `timestamp` desc ") or die('Error: ' . mysql_error());
+		$eligability = mysql_query("SELECT (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call') AS 'MIX' ") or die('Error: ' . mysql_error());
 	}
 	else
 	{
-		$result = mysql_query("select `my_call`,`call`,`band`,`freq`,`mode`,`qso_date`,`time_on` from `live_log` where `call` = '$call' order by `qso_date` desc ,`time_on` desc ") or die('Error: ' . mysql_error());
-		$eligability = mysql_query("SELECT (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `live_log` WHERE `call` = '$call') AS 'MIX' ") or die('Error: ' . mysql_error());
+		$result = mysql_query("select `my_call`,`callsign`,`band`,`frequency`,`mode`,`timestamp` from `log` where `callsign` = '$call' order by `timestamp` desc ") or die('Error: ' . mysql_error());
+		$eligability = mysql_query("SELECT (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 6 FROM `log` WHERE `callsign` = '$call') AS 'MIX' ") or die('Error: ' . mysql_error());
 	}
 } 
 else 
