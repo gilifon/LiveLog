@@ -148,9 +148,11 @@
     <Content Include="App\services\themeManager.js" />
     <Content Include="App\services\utilities.js" />
     <Content Include="App\viewmodels\kdaudit.js" />
+    <Content Include="App\viewmodels\admin.js" />
     <Content Include="App\viewmodels\kdlog.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\kdaudit.html" />
+    <Content Include="App\views\admin.html" />
     <Content Include="App\views\kdlog.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="assets\css\app.css" />
@@ -946,7 +948,6 @@
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
-    <Content Include="Server\db_holylanddb.inc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -957,14 +958,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="weyland-config.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
-    <Content Include="Server\GetLogForCall.php" />
-    <Content Include="Server\GetAllLog.php" />
-    <Content Include="Server\AddLog.php" />
-    <Content Include="Server\Delete.php" />
-    <Content Include="Server\GetAudit.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Server\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

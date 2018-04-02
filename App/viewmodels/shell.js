@@ -25,7 +25,8 @@
         activate: function () {
             router.map([
                 { route: '', title: 'IARC', moduleId: 'viewmodels/kdlog', nav: true },
-                { route: 'Audit', title: 'Audit', moduleId: 'viewmodels/kdaudit', nav: true },                
+                { route: 'Audit', title: 'Audit', moduleId: 'viewmodels/kdaudit', nav: true },
+                { route: 'Admin', title: 'Admin', moduleId: 'viewmodels/admin', nav: true },
             ]).buildNavigationModel();
 
             return router.activate();
