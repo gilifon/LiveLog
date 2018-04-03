@@ -1,0 +1,75 @@
+.call {
+	font-family: Arial;
+	font-weight: bold;
+	color: #d86100;
+	font-size: 33px;
+}
+
+.recognition_div {
+	position: absolute;
+	right: 0;
+	top: 315px;
+	width: 25%;
+	text-align:center;
+}
+
+.recognition_style{
+	font-family:Verdana;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.cw{
+   background-image: url("CW.png");
+   background-color: transparent;
+   background-repeat: no-repeat;
+   position: absolute;
+   left: 30px;
+   top: 700px;
+   width: 100%;
+   height: 100%;
+}
+.ssb{
+   background-image: url("SSB.png");
+   background-color: transparent;
+   background-repeat: no-repeat;
+   position: absolute;
+   left: 130px;
+   top: 700px;
+   width: 100%;
+   height: 100%;
+}
+.digi{
+   background-image: url("DIGI.png");
+   background-color: transparent;
+   background-repeat: no-repeat;
+   position: absolute;
+   left: 230px;
+   top: 700px;
+   width: 100%;
+   height: 100%;
+}
+.mix{
+   background-image: url("MIX.png");
+   background-color: transparent;
+   background-repeat: no-repeat;
+   position: absolute;
+   left: 30px;
+   top: 700px;
+   width: 100%;
+   height: 100%;
+}
+.date
+{
+	position: absolute;
+   left: 10px;
+   top: 778px;
+   width: 100%;
+   height: 100%;
+   
+   font-family: Arial;
+	color: #ffffff;
+	font-size: 10px;
+	z-index:9999;
+	
+}
