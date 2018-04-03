@@ -1,7 +1,7 @@
 <?php
-include ("db_web.inc");
-include ('error.inc');
-include ("mpdf/mpdf.php");
+include ("../../../ws/db_web.inc");
+include ("../../../ws/error.inc");
+include ("../../../ws/mpdf/mpdf.php");
 
 ini_set ( 'display_errors', 1 );
 error_reporting ( E_ALL );
@@ -43,7 +43,7 @@ $tplId = $mpdf->ImportPage ( $pagecount );
 $mpdf->UseTemplate ( $tplId );
 
 //prepare the html
-$html = '<div class="recognition_div"><span class="recognition_style">This is to certify that station</span><br/><span class="call">' . $callsign . '</span><br/><span class="recognition_style"> has submitted the proof of completion of QSOs with all required 4X70 stations</span></div><div class="date">'.date("Y/m/d").'</div>';
+$html = '<div class="recognition_div"><span class="recognition_style">This is to certify that</span><br/><span class="call">' . $callsign . '</span><br/><span class="recognition_style"> has submitted the proof of completion of QSOs with all required 4X70 stations</span></div><div class="date">'.date("Y/m/d").'</div>';
 if ($cw)
 	$html .= '<div class="cw"></div>';
 if ($ssb)

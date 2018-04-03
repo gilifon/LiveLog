@@ -450,8 +450,6 @@
     <Content Include="Server\israel70loadadif.php" />
     <Content Include="Server\certificate\certgen70.php" />
     <Content Include="Server\certificate\israel70.pdf" />
-    <Content Include="Server\certificate\israel70J.pdf" />
-    <Content Include="Server\certificate\_israel70.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
