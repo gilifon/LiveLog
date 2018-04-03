@@ -17,7 +17,7 @@ function addFileToDB($filename)
 	$skips = 0;
 
 	//$query = "INSERT INTO `iarcorg_holylanddb`.`live_log` (`my_call`, `band`, `call`, `freq`, `mode`, `qso_date`) VALUES ";
-	$query = "INSERT INTO `iarcorg_holylanddb`.`log` (`my_call`, `band`, `callsign`, `frequency`, `mode`, `timestamp`) VALUES ";
+	$query = "INSERT INTO `iarcorg_holylanddb`.`log` (`my_call`, `band`, `callsign`, `frequency`, `mode`, `timestamp`, `my_square`, `exchange`) VALUES ";
 	while($record = $p->get_record())
 	{
 		if(count($record) == 0)
@@ -26,7 +26,7 @@ function addFileToDB($filename)
 		};
 		if (in_array(strtoupper($record["station_callsign"]), $callsigns))
 		{
-			$query .= "('".strtoupper($record["station_callsign"])."','".$record["band"]."','".$record["call"]. "','" .$record["freq"]."','".$record["mode"]."','".$record["qso_date"]."'),";
+			$query .= "('".strtoupper($record["station_callsign"])."','".$record["band"]."','".$record["call"]. "','" .$record["freq"]."','".$record["mode"]."','".$record["qso_date"]."','X-XX-XX','000'),";
 		}
 		else
 		{
