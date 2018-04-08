@@ -147,10 +147,12 @@
     <Content Include="App\services\httpService.js" />
     <Content Include="App\services\themeManager.js" />
     <Content Include="App\services\utilities.js" />
+    <Content Include="App\viewmodels\response.js" />
     <Content Include="App\viewmodels\kdaudit.js" />
     <Content Include="App\viewmodels\admin.js" />
     <Content Include="App\viewmodels\kdlog.js" />
     <Content Include="App\viewmodels\shell.js" />
+    <Content Include="App\views\response.html" />
     <Content Include="App\views\kdaudit.html" />
     <Content Include="App\views\admin.html" />
     <Content Include="App\views\kdlog.html" />
