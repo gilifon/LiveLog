@@ -100,7 +100,7 @@
         whereClause = function (x) { return true };
 
         totalQSO(Enumerable.From(statisticsList()).Where(whereClause).Count());
-        uniqueCall(Enumerable.From(statisticsList()).Where(whereClause).Select("$.callsign").Distinct().Count());
+        uniqueCall(Enumerable.From(statisticsList()).Where(whereClause).Select("$.call").Distinct().Count());
 
         //*************************** mode ***************************/
         Enumerable.From(statisticsList()).Where(whereClause).Select("$.mode").Distinct().OrderByDescending().ForEach(function (s, index) {
