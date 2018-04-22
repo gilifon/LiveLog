@@ -5,8 +5,8 @@
             "positionClass": "toast-top-full-width",
             "fadeIn": 300,
             "fadeOut": 1000,
-            "timeOut": 0,
-            "extendedTimeOut": 0
+            "timeOut": 2500,
+            "extendedTimeOut": 1000
         };
 
         switch (type) {
