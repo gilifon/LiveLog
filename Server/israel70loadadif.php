@@ -34,7 +34,7 @@ function addFileToDB($filename)
         $rec_counter++;
 		if (in_array(strtoupper($record["station_callsign"]), $callsigns))
 		{
-			$query .= "('".strtoupper($record["station_callsign"])."','".$record["band"]."','".$record["call"]. "','" .$record["freq"]."','".$record["mode"]."','".$record["qso_date"]."','X-XX-XX','000'),";
+			$query .= "('".trim(strtoupper($record["station_callsign"]))."','".trim(strtoupper($record["band"]))."','".trim(strtoupper($record["call"])). "','" .$record["freq"]."','".trim(strtoupper($record["mode"]))."','".$record["qso_date"]."','X-XX-XX','000'),";
 		}
 		else
 		{
@@ -67,10 +67,10 @@ if (file_exists($target_file)) {
     Redirect('?success=false&msg=Error: File already exists. Change file name and try again.&skips='.$skips.'&rec_counter='.$rec_counter);
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    //echo json_encode(array('success' => false, 'msg' => 'Error: File is too big, only 500k allowed.'));
-    Redirect('?success=false&msg=Error: File is too big, only 500k allowed.&skips='.$skips.'&rec_counter='.$rec_counter);
-}
+//if ($_FILES["fileToUpload"]["size"] > 500000) {
+//    //echo json_encode(array('success' => false, 'msg' => 'Error: File is too big, only 500k allowed.'));
+//    Redirect('?success=false&msg=Error: File is too big, only 500k allowed.&skips='.$skips.'&rec_counter='.$rec_counter);
+//}
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
 {
