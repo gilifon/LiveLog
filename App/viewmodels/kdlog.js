@@ -6,6 +6,7 @@
     this.modeData = ko.observableArray();
     this.bandData = ko.observableArray();
     this.refData = ko.observableArray();
+    this.unsordetStations = ko.observableArray();
     this.isWwffOnly = ko.observable(true);
 
     this.totalQSO = ko.observable(0);
@@ -140,9 +141,17 @@
         Enumerable.From(statisticsList()).Where(whereClause).Select("$.my_call").OrderBy().Distinct().ForEach(function (s, index) {
             var count = Enumerable.From(statisticsList()).Where(function (x) { return x.my_call == s }).Where(whereClause).ToArray().length;
             if (s == null) s = " "
-            refData.push([s, count]);
+            unsordetStations.push([s, count]);
+            //refData.push([s, count]);
         })
-
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70I" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70S" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70R" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70A" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70E" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70L" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4Z70IARC" }).ForEach(function (s) { refData.push(s); });
+        
         var refDataTable = google.visualization.arrayToDataTable(refData());
         var refView = new google.visualization.DataView(refDataTable);
         refView.setColumns([0, 1,
