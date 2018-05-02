@@ -1,5 +1,5 @@
 <?php
-include ("../../../ws/db_web.inc");
+include ("../../../ws/db_holyland.inc");
 include ("../../../ws/error.inc");
 include ("../../../ws/mpdf/mpdf.php");
 
@@ -11,6 +11,7 @@ if (isset ( $_POST ['callsign'] )) {
 } else {
 	$callsign = '';
 }
+
 if (isset ( $_POST ['cw'] )) {
 	$cw = $_POST['cw'] === 'true';
 } else {
@@ -57,5 +58,10 @@ if (!$cw && !$ssb && !$digi && $mix)
 $mpdf->WriteHTML ( $stylesheet, 1 );
 $mpdf->WriteHTML ( $html, 2 );
 $mpdf->Output ( $callsign . ".pdf", "I" );
+
+$query = "INSERT INTO `iarcorg_holylanddb`.`israel70cert` (`call`) VALUES ('".trim(strtoupper($callsign))."') ON DUPLICATE KEY UPDATE `call`=`call`";
+$result = mysql_query( $query );
+
 echo "$_POST ['cw']";
+
 ?>
