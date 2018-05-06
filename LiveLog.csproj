@@ -432,6 +432,7 @@
     <Content Include="Server\certificate\SSB.png" />
     <Content Include="Server\db_holylanddb.inc" />
     <Content Include="Server\error.inc" />
+    <Content Include="Server\GetEntitled.php" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

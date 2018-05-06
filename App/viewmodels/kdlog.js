@@ -23,6 +23,8 @@
     this.israelL = ko.observableArray();
     this.israelJ = ko.observableArray();
 
+    this.entitled = ko.observableArray();
+
     this.isEligable = ko.observable(false);
     this.ssbEndorsment = ko.observable(false);
     this.cwEndorsment = ko.observable(false);
@@ -90,6 +92,19 @@
         }).error(function (xhr, ajaxOptions, thrownError) {
             //alert(jQuery.parseJSON(xhr.responseText).error);
             statisticsList([]);
+        });
+    }
+
+    this.loadEntitled = function () {
+
+        $.ajax({
+            type: "POST",
+            url: "./Server/GetEntitled.php",
+        }).done(function (data) {
+            entitled(data);
+        }).error(function (xhr, ajaxOptions, thrownError) {
+            //alert(jQuery.parseJSON(xhr.responseText).error);
+            entitled([]);
         });
     }
 
@@ -195,6 +210,7 @@
             google.charts.load('current', { 'packages': ['corechart', 'bar'] });
             // Set a callback to run when the Google Visualization API is loaded.
             google.charts.setOnLoadCallback(loadData);
+            loadEntitled();
             shell.selectedMainMenu('sections');
         },
         compositionComplete: function () {
@@ -218,6 +234,7 @@
         digiEndorsment: digiEndorsment,
         mixEndorsment: mixEndorsment,
         didNotWork: didNotWork,
+        entitled: entitled,
         shell: shell
     };
 
