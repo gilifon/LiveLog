@@ -19,283 +19,277 @@
     </p>
 
     <div class="row">
-        <div class="col-md-11 col-sm-12 col-xs-12">
-            <div data-bind="visible:linkList().length > 0">
-                <div class="row">
-                    <div class="col-md-5 hidden-xs hidden-xs">
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelI" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelI().length"></span> QSO's found with 4X70I <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelI">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelI">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelR" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelR().length"></span> QSO's found with 4X70R <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelR">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelR">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelE" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelE().length"></span> QSO's found with 4X70E <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelE">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelE">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel panel-gold margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelJ" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelJ().length"></span> QSO's found with 4Z70IARC <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelJ">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelJ">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-xs-2"></div>
-                    <div class="col-md-5 hidden-xs hidden-xs">
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelS" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelS().length"></span> QSO's found with 4X70S <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelS">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelS">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelA" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelA().length"></span> QSO's found with 4X70A <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelA">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelA">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel panel-blue margin-bottom-40">
-
-                    <div class="panel-heading" data-toggle="collapse" data-target="#israelL" style="cursor:pointer">
-                        <h4 class="panel-title"><span data-bind="html: israelL().length"></span> QSO's found with 4X70L <i class="icon-plus pull-right"></i></h4>
-                    </div>
-                    <table class="table table-striped table-hover out collapse" id="israelL">
-                        <thead>
-                            <tr>
-                                <th>Station</th>
-                                <!--<th>Call</th>-->
-                                <th>Date</th>
-                                <!--<th>Time</th>-->
-                                <th>Mode</th>
-                                <th>Band</th>
-                                <!--<th>Frequency</th>-->
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: israelL">
-                            <tr>
-                                <td data-bind="text: my_call"></td>
-                                <!--<td data-bind="text: call"></td>-->
-                                <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
-                                <td data-bind="text: mode"></td>
-                                <td data-bind="text: band"></td>
-                                <!--<td data-bind="text: freq"></td>-->
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-bind="visible:isEligable">
-
-                <form method="post" action="https://iarc.org/livelog/Server/certificate/certgen70.php" target="_blank">
-                    <div style="display:none">
-                        <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
-                        <input type="text" class="form-control" id="cw" name="cw" data-bind="value: cwEndorsment" style="visibility:hidden;">
-                        <input type="text" class="form-control" id="ssb" name="ssb" data-bind="value: ssbEndorsment" style="visibility:hidden;">
-                        <input type="text" class="form-control" id="digi" name="digi" data-bind="value: digiEndorsment" style="visibility:hidden;">
-                        <input type="text" class="form-control" id="mix" name="mix" data-bind="value: mixEndorsment" style="visibility:hidden;">
-                    </div>
-                    <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Your Certificate</button>
-                </form>
-
-            </div>
-            <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
-            <div class="margin-top-40">
-                <h3>Israel 70 - Overall Statistics</h3>
-                <div class="row">
-                    <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
-                    <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
-                    <div class="col-md-4"><label data-bind="text: entitled().length"></label> are entitled for certificate</div>
-                    </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div id="mode_chart"></div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div id="band_chart"></div>
-                    </div>
-                </div>
-                <p class="margin-bottom-20"></p>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div id="ref_chart"></div>
-                    </div>
-                </div>
-            </div>
-            <!--/row-fluid-->
-        </div>
-        <div class="col-md-1 hidden-xs">
+        <div data-bind="visible:linkList().length > 0">
             <div class="row">
-                <table class="table table-striped table-hover" id="dataTable">
-                    <tbody data-bind="foreach: entitled">
-                        <tr>
-                            <td data-bind="text: callsign"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="col-md-5 hidden-xs hidden-xs">
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelI" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelI().length"></span> QSO's found with 4X70I <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelI">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelI">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelR" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelR().length"></span> QSO's found with 4X70R <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelR">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelR">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelE" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelE().length"></span> QSO's found with 4X70E <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelE">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelE">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-gold margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelJ" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelJ().length"></span> QSO's found with 4Z70IARC <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelJ">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelJ">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                <div class="col-md-5 hidden-xs hidden-xs">
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelS" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelS().length"></span> QSO's found with 4X70S <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelS">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelS">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelA" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelA().length"></span> QSO's found with 4X70A <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelA">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelA">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-blue margin-bottom-40">
+
+                        <div class="panel-heading" data-toggle="collapse" data-target="#israelL" style="cursor:pointer">
+                            <h4 class="panel-title"><span data-bind="html: israelL().length"></span> QSO's found with 4X70L <i class="icon-plus pull-right"></i></h4>
+                        </div>
+                        <table class="table table-striped table-hover out collapse" id="israelL">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <!--<th>Call</th>-->
+                                    <th>Date</th>
+                                    <!--<th>Time</th>-->
+                                    <th>Mode</th>
+                                    <th>Band</th>
+                                    <!--<th>Frequency</th>-->
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: israelL">
+                                <tr>
+                                    <td data-bind="text: my_call"></td>
+                                    <!--<td data-bind="text: call"></td>-->
+                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                                    <!--<td data-bind="text: moment(time_on,'HHmmss').format('HH:mm:ss')"></td>-->
+                                    <td data-bind="text: mode"></td>
+                                    <td data-bind="text: band"></td>
+                                    <!--<td data-bind="text: freq"></td>-->
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+        <div data-bind="visible:isEligable">
+
+            <form method="post" action="https://iarc.org/livelog/Server/certificate/certgen70.php" target="_blank">
+                <div style="display:none">
+                    <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="cw" name="cw" data-bind="value: cwEndorsment" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="ssb" name="ssb" data-bind="value: ssbEndorsment" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="digi" name="digi" data-bind="value: digiEndorsment" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="mix" name="mix" data-bind="value: mixEndorsment" style="visibility:hidden;">
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Your Certificate</button>
+            </form>
+
+        </div>
+        <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
+        <div class="margin-top-40">
+            <h3>Israel 70 - Overall Statistics</h3>
+            <div class="row">
+                <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
+                <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div id="mode_chart"></div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div id="band_chart"></div>
+                </div>
+            </div>
+            <p class="margin-bottom-20"></p>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="ref_chart"></div>
+                </div>
+            </div>
+        </div>
+        <!--/row-fluid-->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3><label data-bind="text: entitled().length"></label> are entitled for certificate</h3>
+        </div>
+    </div>
+    <div class="row" data-bind="foreach: entitled">
+        <div class="col-md-2" data-bind="text: callsign"></div>
     </div>
 </div>
 
