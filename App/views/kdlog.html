@@ -22,7 +22,7 @@
         <div data-bind="visible:linkList().length > 0">
             <div class="row">
                 <div class="col-md-5 hidden-xs hidden-xs">
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelI().length == 0, 'panel-green': israelI().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelI" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelI().length"></span> QSO's found with 4X70I <i class="icon-plus pull-right"></i></h4>
@@ -53,7 +53,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelR().length == 0, 'panel-green': israelR().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelR" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelR().length"></span> QSO's found with 4X70R <i class="icon-plus pull-right"></i></h4>
@@ -84,7 +84,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelE().length == 0, 'panel-green': israelE().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelE" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelE().length"></span> QSO's found with 4X70E <i class="icon-plus pull-right"></i></h4>
@@ -115,7 +115,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel panel-gold margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-gold': israelJ().length == 0, 'panel-green': israelJ().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelJ" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelJ().length"></span> QSO's found with 4Z70IARC <i class="icon-plus pull-right"></i></h4>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
                 <div class="col-md-5 hidden-xs hidden-xs">
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelS().length == 0, 'panel-green': israelS().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelS" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelS().length"></span> QSO's found with 4X70S <i class="icon-plus pull-right"></i></h4>
@@ -180,7 +180,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelA().length == 0, 'panel-green': israelA().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelA" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelA().length"></span> QSO's found with 4X70A <i class="icon-plus pull-right"></i></h4>
@@ -211,7 +211,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel panel-blue margin-bottom-40">
+                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': israelL().length == 0, 'panel-green': israelL().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#israelL" style="cursor:pointer">
                             <h4 class="panel-title"><span data-bind="html: israelL().length"></span> QSO's found with 4X70L <i class="icon-plus pull-right"></i></h4>
