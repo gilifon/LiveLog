@@ -6,7 +6,7 @@
     this.modeData = ko.observableArray();
     this.bandData = ko.observableArray();
     this.refData = ko.observableArray();
-    this.unsordetStations = ko.observableArray();
+    this.unsordetStations = ko.observableArray([]);
     this.isWwffOnly = ko.observable(true);
 
     this.totalQSO = ko.observable(0);
@@ -15,21 +15,18 @@
     this.callsign = ko.observable('');
     this.didNotWork = ko.observable(false);
 
-    this.israelI = ko.observableArray();
-    this.israelS = ko.observableArray();
-    this.israelR = ko.observableArray();
-    this.israelA = ko.observableArray();
-    this.israelE = ko.observableArray();
-    this.israelL = ko.observableArray();
-    this.israelJ = ko.observableArray();
+    this.Acre = ko.observableArray();
+    this.StellaMaris = ko.observableArray();
+    this.Mikhmoret = ko.observableArray();
+    this.Jaffa = ko.observableArray();
+    this.Ashdod = ko.observableArray();
+    this.Eilat = ko.observableArray();
 
     this.entitled = ko.observableArray();
 
     this.isEligable = ko.observable(false);
-    this.ssbEndorsment = ko.observable(false);
-    this.cwEndorsment = ko.observable(false);
-    this.digiEndorsment = ko.observable(false);
-    this.mixEndorsment = ko.observable(false);
+    this.Endorsment3 = ko.observable(false);
+    this.Endorsment6 = ko.observable(false);
 
     var that = this;
 
@@ -50,20 +47,17 @@
             }
             linkList(data.data);
 
-            israelI(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70I" }).ToArray());
-            israelS(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70S" }).ToArray());
-            israelR(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70R" }).ToArray());
-            israelA(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70A" }).ToArray());
-            israelE(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70E" }).ToArray());
-            israelL(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4X70L" }).ToArray());
-            israelJ(Enumerable.From(data.data).Where(function (x) { return x.my_call == "4Z70IARC" }).ToArray());
+            Acre(Enumerable.From(data.data).Where(function (x) { return x.station == "Acre (ISR003)" }).ToArray());
+            StellaMaris(Enumerable.From(data.data).Where(function (x) { return x.station == "Stella Maris (ISR004)" }).ToArray());
+            Mikhmoret(Enumerable.From(data.data).Where(function (x) { return x.station == "Mikhmoret (ISR006)" }).ToArray());
+            Jaffa(Enumerable.From(data.data).Where(function (x) { return x.station == "Jaffa (ISR005)" }).ToArray());
+            Ashdod(Enumerable.From(data.data).Where(function (x) { return x.station == "Ashdod (ISR001)" }).ToArray());
+            Eilat(Enumerable.From(data.data).Where(function (x) { return x.station == "Eilat (ISR002)" }).ToArray());
 
-            ssbEndorsment(data.eligability.SSB == 1);
-            cwEndorsment(data.eligability.CW == 1);
-            digiEndorsment(data.eligability.DIGI == 1);
-            mixEndorsment(data.eligability.MIX == 1);
+            Endorsment3(data.eligability.num_of_stations >= 3);
+            Endorsment6(data.eligability.num_of_stations == 6);
 
-            isEligable(ssbEndorsment() || cwEndorsment() || digiEndorsment() || mixEndorsment());
+            isEligable(Endorsment3() || Endorsment6());
 
             didNotWork(false);
         }).error(function (xhr, ajaxOptions, thrownError) {
@@ -151,21 +145,20 @@
             colors: ['#3366ff', '#cc00cc', '#ff5050', '#cc9900', '#33cc33', '#33cccc', '#6666ff', '#ff9933' ]
         };
         //*************************** ref ***************************/
-
+        this.unsordetStations = ko.observableArray([]);
         refData.push(['Station', 'QSOs']);
-        Enumerable.From(statisticsList()).Where(whereClause).Select("$.my_call").OrderBy().Distinct().ForEach(function (s, index) {
-            var count = Enumerable.From(statisticsList()).Where(function (x) { return x.my_call == s }).Where(whereClause).ToArray().length;
+        Enumerable.From(statisticsList()).Where(whereClause).Select("$.station").OrderBy().Distinct().ForEach(function (s, index) {
+            var count = Enumerable.From(statisticsList()).Where(function (x) { return x.station == s }).Where(whereClause).ToArray().length;
             if (s == null) s = " "
             unsordetStations.push([s, count]);
             //refData.push([s, count]);
         })
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70I" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70S" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70R" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70A" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70E" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4X70L" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "4Z70IARC" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Ashdod (ISR001)" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Eilat (ISR002)" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Acre (ISR003)" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Stella Maris (ISR004)" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jaffa (ISR005)" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Mikhmoret (ISR006)" }).ForEach(function (s) { refData.push(s); });
         
         var refDataTable = google.visualization.arrayToDataTable(refData());
         var refView = new google.visualization.DataView(refDataTable);
@@ -220,19 +213,16 @@
         },
         statisticsList: statisticsList,
         linkList: linkList,
-        israelI: israelI,
-        israelS: israelS,
-        israelR: israelR,
-        israelA: israelA,
-        israelE: israelE,
-        israelL: israelL,
-        israelJ: israelJ,
+        Acre: Acre,
+        StellaMaris: StellaMaris,
+        Mikhmoret: Mikhmoret,
+        Jaffa: Jaffa,
+        Ashdod: Ashdod,
+        Eilat: Eilat,
         callsign: callsign,
         isEligable: isEligable,
-        ssbEndorsment: ssbEndorsment,
-        cwEndorsment: cwEndorsment,
-        digiEndorsment: digiEndorsment,
-        mixEndorsment: mixEndorsment,
+        Endorsment3: Endorsment3,
+        Endorsment6: Endorsment6,
         didNotWork: didNotWork,
         entitled: entitled,
         shell: shell
