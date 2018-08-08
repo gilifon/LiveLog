@@ -16,7 +16,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Israel 70 - Live Log';
+    app.title = 'Lighthouse 2018 - Live Log';
     app.version = "1.0";
 
     app.configurePlugins({
