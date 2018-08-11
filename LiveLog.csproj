@@ -457,6 +457,7 @@
     <Content Include="Server\israel70loadadif.php" />
     <Content Include="Server\certificate\certgen70.php" />
     <Content Include="Server\certificate\israel70.pdf" />
+    <Content Include="Server\GetOperators.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

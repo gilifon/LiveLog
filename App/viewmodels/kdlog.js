@@ -22,6 +22,13 @@
     this.Ashdod = ko.observableArray();
     this.Eilat = ko.observableArray();
 
+    this.AcreOp = ko.observableArray();
+    this.StellaMarisOp = ko.observableArray();
+    this.MikhmoretOp = ko.observableArray();
+    this.JaffaOp = ko.observableArray();
+    this.AshdodOp = ko.observableArray();
+    this.EilatOp = ko.observableArray();
+
     this.entitled = ko.observableArray();
 
     this.isEligable = ko.observable(false);
@@ -68,6 +75,26 @@
         });
     }
     
+    this.GetOperators = function () {
+        $.ajax({
+            type: "POST",
+            url: "./Server/GetOperators.php"
+        }).done(function (data) {
+
+            if (data == "") {
+                return;
+            }
+            AcreOp(Enumerable.From(data).Where(function (x) { return x.station == "Acre (ISR003)" }).ToArray());
+            StellaMarisOp(Enumerable.From(data).Where(function (x) { return x.station == "Stella Maris (ISR004)" }).ToArray());
+            MikhmoretOp(Enumerable.From(data).Where(function (x) { return x.station == "Mikhmoret (ISR006)" }).ToArray());
+            JaffaOp(Enumerable.From(data).Where(function (x) { return x.station == "Jaffa (ISR005)" }).ToArray());
+            AshdodOp(Enumerable.From(data).Where(function (x) { return x.station == "Ashdod (ISR001)" }).ToArray());
+            EilatOp(Enumerable.From(data).Where(function (x) { return x.station == "Eilat (ISR002)" }).ToArray());
+        }).error(function (xhr, ajaxOptions, thrownError) {
+
+        });
+    }
+
     this.IsSectionExist = function(section)
     {
         var queryResult = Enumerable.From(linkList).Where(function (x) { return x.section == section }).ToArray();
@@ -204,11 +231,13 @@
             // Set a callback to run when the Google Visualization API is loaded.
             google.charts.setOnLoadCallback(loadData);
             loadEntitled();
+            GetOperators();
             shell.selectedMainMenu('sections');
         },
         compositionComplete: function () {
             jwerty.key('enter', function () {
                 GetWorkedSections();
+                
             }, that);
         },
         statisticsList: statisticsList,
@@ -219,6 +248,12 @@
         Jaffa: Jaffa,
         Ashdod: Ashdod,
         Eilat: Eilat,
+        AcreOp: AcreOp,
+        StellaMarisOp: StellaMarisOp,
+        MikhmoretOp: MikhmoretOp,
+        JaffaOp: JaffaOp,
+        AshdodOp: AshdodOp,
+        EilatOp: EilatOp,
         callsign: callsign,
         isEligable: isEligable,
         Endorsment3: Endorsment3,

@@ -1,9 +1,156 @@
 ﻿<div class="container">
     <p class="margin-bottom-40"></p>
 
-    <h3>
-        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> Enter your callsign to check if you are in the log
-    </h3>
+    <h2>
+        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> Israel Lighthouse 2018 - Live log
+    </h2>
+
+    <div class="row">
+        <div class="col-md-4 hidden-xs hidden-xs">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#AshdodOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: AshdodOp().length"></span> Operator's @ Ashdod (ISR001) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="AshdodOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: AshdodOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#EilatOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: EilatOp().length"></span> Operator's @ Eilat (ISR002) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="EilatOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: EilatOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#AcreOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: AcreOp().length"></span> Operator's @ Acre (ISR003) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="AcreOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: AcreOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4 hidden-xs hidden-xs">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#StellaMarisOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: StellaMarisOp().length"></span> Operator's @ Stella Maris (ISR004) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="StellaMarisOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: StellaMarisOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#JaffaOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: JaffaOp().length"></span> Operator's @ Jaffa (ISR005) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="JaffaOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: JaffaOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#MikhmoretOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: MikhmoretOp().length"></span> Operator's @ Mikhmoret (ISR006) </h4>
+                </div>
+                <table class="table table-striped table-hover," id="MikhmoretOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: MikhmoretOp">
+                        <tr>
+                            <td data-bind="text: operator"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4 hidden-xs hidden-xs">
+            <div style="background-image:url(assets/img/israel_map.jpg); background-size: 260px; background-repeat:no-repeat; height:640px; position:relative">
+                <a href="https://en.wikipedia.org/wiki/Akko_Light" target="_blank" title="Acre (ISR003)">
+                    <div style="position:absolute; top:26px; left:125px" data-bind="if: Acre().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:26px; left:125px" data-bind="if: Acre().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Stella_Maris_Light" target="_blank" title="Stella Maris (ISR004)">
+                    <div style="position:absolute; top:50px; left:110px" data-bind="if: StellaMaris().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:50px; left:110px" data-bind="if: StellaMaris().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Mikhmoret_Light" target="_blank" title="Mikhmoret (ISR006)">
+                    <div style="position:absolute; top:118px; left:98px" data-bind="if: Mikhmoret().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:118px; left:98px" data-bind="if: Mikhmoret().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Jaffa_Light" target="_blank" title="Jaffa (ISR005)">
+                    <div style="position:absolute; top:170px; left:83px" data-bind="if: Jaffa().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:170px; left:83px" data-bind="if: Jaffa().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Ashdod_Light" target="_blank" title="Ashdod (ISR001)">
+                    <div style="position:absolute; top:220px; left:60px" data-bind="if: Ashdod().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:220px; left:60px" data-bind="if: Ashdod().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Eilat_Light" target="_blank" title="Eilat (ISR002)">
+                    <div style="position:absolute; top:571px; left:107px" data-bind="if: Eilat().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
+                    <div style="position:absolute; top:571px; left:107px" data-bind="if: Eilat().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p class="margin-bottom-40"></p>
+
+    <h3>Enter your callsign to check if you are in the log</h3>
     <p>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -21,35 +168,7 @@
     <div class="row">
         <div data-bind="visible:linkList().length > 0">
             <div class="row">
-                <div class="col-md-4 hidden-xs hidden-xs">
-                    <div style="background-image:url(assets/img/israel_map.jpg); background-size: 260px; background-repeat:no-repeat; height:640px; position:relative">
-                        <a href="https://en.wikipedia.org/wiki/Akko_Light" target="_blank" title="Acre (ISR003)">
-                            <div style="position:absolute; top:26px; left:125px" data-bind="if: Acre().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:26px; left:125px" data-bind="if: Acre().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Stella_Maris_Light" target="_blank" title="Stella Maris (ISR004)">
-                            <div style="position:absolute; top:50px; left:110px" data-bind="if: StellaMaris().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:50px; left:110px" data-bind="if: StellaMaris().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Mikhmoret_Light" target="_blank" title="Mikhmoret (ISR006)">
-                            <div style="position:absolute; top:118px; left:98px" data-bind="if: Mikhmoret().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:118px; left:98px" data-bind="if: Mikhmoret().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Jaffa_Light" target="_blank" title="Jaffa (ISR005)">
-                            <div style="position:absolute; top:170px; left:83px" data-bind="if: Jaffa().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:170px; left:83px" data-bind="if: Jaffa().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Ashdod_Light" target="_blank" title="Ashdod (ISR001)">
-                            <div style="position:absolute; top:220px; left:60px" data-bind="if: Ashdod().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:220px; left:60px" data-bind="if: Ashdod().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Eilat_Light" target="_blank" title="Eilat (ISR002)">
-                            <div style="position:absolute; top:571px; left:107px" data-bind="if: Eilat().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
-                            <div style="position:absolute; top:571px; left:107px" data-bind="if: Eilat().length == 0"><img src="assets/img/lighthouse_off.png" alt="Alternate Text" width="15" /></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 hidden-xs hidden-xs">
+                <div class="col-md-6 hidden-xs hidden-xs">
                     <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Ashdod().length == 0, 'panel-green': Ashdod().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#Ashdod" style="cursor:pointer">
@@ -144,7 +263,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-md-4 hidden-xs hidden-xs">
+                <div class="col-md-6 hidden-xs hidden-xs">
                     <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': StellaMaris().length == 0, 'panel-green': StellaMaris().length > 0 }">
 
                         <div class="panel-heading" data-toggle="collapse" data-target="#StellaMaris" style="cursor:pointer">
@@ -259,7 +378,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
         <div class="margin-top-40">
             <h3>Lighthouse 2018 - Overall Statistics</h3>
