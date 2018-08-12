@@ -6,7 +6,7 @@
     </h2>
 
     <div class="row">
-        <div class="col-md-4 hidden-xs hidden-xs">
+        <div class="col-md-4">
             <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
 
                 <div class="panel-heading" data-toggle="collapsex" data-target="#AshdodOp" style="cursor:pointer">
@@ -20,7 +20,11 @@
                     </thead>
                     <tbody data-bind="foreach: AshdodOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -38,11 +42,17 @@
                     </thead>
                     <tbody data-bind="foreach: EilatOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="col-md-4">
             <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
 
                 <div class="panel-heading" data-toggle="collapsex" data-target="#AcreOp" style="cursor:pointer">
@@ -56,13 +66,15 @@
                     </thead>
                     <tbody data-bind="foreach: AcreOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="col-md-4 hidden-xs hidden-xs">
             <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
 
                 <div class="panel-heading" data-toggle="collapsex" data-target="#StellaMarisOp" style="cursor:pointer">
@@ -76,11 +88,17 @@
                     </thead>
                     <tbody data-bind="foreach: StellaMarisOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="col-md-4">
             <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
 
                 <div class="panel-heading" data-toggle="collapsex" data-target="#JaffaOp" style="cursor:pointer">
@@ -94,7 +112,11 @@
                     </thead>
                     <tbody data-bind="foreach: JaffaOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -112,13 +134,241 @@
                     </thead>
                     <tbody data-bind="foreach: MikhmoretOp">
                         <tr>
-                            <td data-bind="text: operator"></td>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col-md-4 hidden-xs hidden-xs">
+    </div>
+
+    <p class="margin-bottom-40"></p>
+
+    <h3>Enter your callsing to check the log</h3>
+    <p>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <input class="form-control" data-bind="value: callsign, valueUpdate: 'afterkeydown'" placeholder="Your Callsign" type="text" tabindex="1" style="text-transform: uppercase;" />
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                <button id="CheckBtn" data-bind="click: GetWorkedSections" type="button" class="btn btn-info"><span class="glyphicon glyphicon-certificate"></span> Check</button>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                <!--<img src="././assets/img/israel70.png" alt="Alternate Text" width="50%"/>-->
+            </div>
+        </div>
+        <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
+    </p>
+    <div class="row margin-bottom-40" data-bind="visible:isEligable">
+        <div class="col-md-12">
+            <form method="post" action="https://iarc.org/livelog/Server/certificate/certgen70.php" target="_blank">
+                <div style="display:none">
+                    <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="endorsment3" name="endorsment3" data-bind="value: Endorsment3" style="visibility:hidden;">
+                    <input type="text" class="form-control" id="endorsment6" name="endorsment6" data-bind="value: Endorsment6" style="visibility:hidden;">
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Your Certificate</button>
+            </form>
+        </div>
+    </div>
+    
+        
+    <div class="row">
+        <div class="col-md-4">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Ashdod().length == 0, 'panel-green': Ashdod().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#Ashdod" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Ashdod().length"></span> QSO's with Ashdod (ISR001) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="Ashdod">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Ashdod">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Eilat().length == 0, 'panel-green': Eilat().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#Eilat" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Eilat().length"></span> QSO's with Eilat (ISR002) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="Eilat">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Eilat">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Acre().length == 0, 'panel-green': Acre().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#Acre" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Acre().length"></span> QSO's with Acre (ISR003) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="Acre">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Acre">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': StellaMaris().length == 0, 'panel-green': StellaMaris().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#StellaMaris" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: StellaMaris().length"></span> QSO's with Stella Maris (ISR004) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="StellaMaris">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: StellaMaris">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Jaffa().length == 0, 'panel-green': Jaffa().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#Jaffa" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Jaffa().length"></span> QSO's with Jaffa (ISR005) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="Jaffa">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Jaffa">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Mikhmoret().length == 0, 'panel-green': Mikhmoret().length > 0 }">
+
+                <div class="panel-heading" data-toggle="collapse" data-target="#Mikhmoret" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Mikhmoret().length"></span> QSO's with Mikhmoret (ISR006) <i class="icon-plus pull-right"></i></h4>
+                </div>
+                <table class="table table-striped table-hover out collapse" id="Mikhmoret">
+                    <thead>
+                        <tr>
+                            <th>Station</th>
+                            <!--<th>Call</th>-->
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Band</th>
+                            <!--<th>Frequency</th>-->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Mikhmoret">
+                        <tr>
+                            <td data-bind="text: my_call"></td>
+                            <!--<td data-bind="text: call"></td>-->
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
+                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
+                            <td data-bind="text: mode"></td>
+                            <td data-bind="text: band"></td>
+                            <!--<td data-bind="text: freq"></td>-->
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
             <div style="background-image:url(assets/img/israel_map.jpg); background-size: 260px; background-repeat:no-repeat; height:640px; position:relative">
                 <a href="https://en.wikipedia.org/wiki/Akko_Light" target="_blank" title="Acre (ISR003)">
                     <div style="position:absolute; top:26px; left:125px" data-bind="if: Acre().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
@@ -147,262 +397,29 @@
             </div>
         </div>
     </div>
-
-    <p class="margin-bottom-40"></p>
-
-    <h3>Enter your callsign to check if you are in the log</h3>
-    <p>
+        
+    <div class="margin-top-40">
+        <h3>Lighthouse 2018 - Overall Statistics</h3>
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <input class="form-control" data-bind="value: callsign, valueUpdate: 'afterkeydown'" placeholder="Your Callsign" type="text" tabindex="1" style="text-transform: uppercase;" />
+            <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
+            <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div id="mode_chart"></div>
             </div>
-            <div class="col-md-2 col-sm-3 col-xs-3">
-                <button id="CheckBtn" data-bind="click: GetWorkedSections" type="button" class="btn btn-info"><span class="glyphicon glyphicon-certificate"></span> Check</button>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-3">
-                <!--<img src="././assets/img/israel70.png" alt="Alternate Text" width="50%"/>-->
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div id="band_chart"></div>
             </div>
         </div>
-    </p>
-
-    <div class="row">
-        <div data-bind="visible:linkList().length > 0">
-            <div class="row">
-                <div class="col-md-6 hidden-xs hidden-xs">
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Ashdod().length == 0, 'panel-green': Ashdod().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#Ashdod" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: Ashdod().length"></span> QSO's found with Ashdod (ISR001) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="Ashdod">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: Ashdod">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Eilat().length == 0, 'panel-green': Eilat().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#Eilat" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: Eilat().length"></span> QSO's found with Eilat (ISR002) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="Eilat">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: Eilat">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Acre().length == 0, 'panel-green': Acre().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#Acre" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: Acre().length"></span> QSO's found with Acre (ISR003) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="Acre">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: Acre">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-md-6 hidden-xs hidden-xs">
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': StellaMaris().length == 0, 'panel-green': StellaMaris().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#StellaMaris" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: StellaMaris().length"></span> QSO's found with Stella Maris (ISR004) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="StellaMaris">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: StellaMaris">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Jaffa().length == 0, 'panel-green': Jaffa().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#Jaffa" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: Jaffa().length"></span> QSO's found with Jaffa (ISR005) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="Jaffa">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: Jaffa">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Mikhmoret().length == 0, 'panel-green': Mikhmoret().length > 0 }">
-
-                        <div class="panel-heading" data-toggle="collapse" data-target="#Mikhmoret" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: Mikhmoret().length"></span> QSO's found with Mikhmoret (ISR006) <i class="icon-plus pull-right"></i></h4>
-                        </div>
-                        <table class="table table-striped table-hover out collapse" id="Mikhmoret">
-                            <thead>
-                                <tr>
-                                    <th>Station</th>
-                                    <!--<th>Call</th>-->
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Mode</th>
-                                    <th>Band</th>
-                                    <!--<th>Frequency</th>-->
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: Mikhmoret">
-                                <tr>
-                                    <td data-bind="text: my_call"></td>
-                                    <!--<td data-bind="text: call"></td>-->
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                                    <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                                    <td data-bind="text: mode"></td>
-                                    <td data-bind="text: band"></td>
-                                    <!--<td data-bind="text: freq"></td>-->
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 hidden-xs hidden-xs">
-                </div>
-                <div class="col-md-8 hidden-xs hidden-xs">
-                    <div data-bind="visible:isEligable">
-
-                        <form method="post" action="https://iarc.org/livelog/Server/certificate/certgen70.php" target="_blank">
-                            <div style="display:none">
-                                <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
-                                <input type="text" class="form-control" id="endorsment3" name="endorsment3" data-bind="value: Endorsment3" style="visibility:hidden;">
-                                <input type="text" class="form-control" id="endorsment6" name="endorsment6" data-bind="value: Endorsment6" style="visibility:hidden;">
-                            </div>
-                            <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Your Certificate</button>
-                        </form>
-
-                    </div>
-                </div>
+        <p class="margin-bottom-20"></p>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="ref_chart"></div>
             </div>
         </div>
-
-        <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
-        <div class="margin-top-40">
-            <h3>Lighthouse 2018 - Overall Statistics</h3>
-            <div class="row">
-                <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
-                <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div id="mode_chart"></div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div id="band_chart"></div>
-                </div>
-            </div>
-            <p class="margin-bottom-20"></p>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div id="ref_chart"></div>
-                </div>
-            </div>
-        </div>
-        <!--/row-fluid-->
     </div>
+    
     <div class="row">
         <div class="col-md-12">
             <h3><label data-bind="text: entitled().length"></label> are entitled for certificate</h3>
