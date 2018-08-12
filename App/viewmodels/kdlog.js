@@ -48,6 +48,12 @@
             if (data.data == "")
             {
                 linkList([]);
+                Acre([]);
+                StellaMaris([]);
+                Mikhmoret([]);
+                Jaffa([]);
+                Ashdod([]);
+                Eilat([]);
                 didNotWork(true);
                 isEligable(false);
                 return;
