@@ -48,6 +48,12 @@
             if (data.data == "")
             {
                 linkList([]);
+                Acre([]);
+                StellaMaris([]);
+                Mikhmoret([]);
+                Jaffa([]);
+                Ashdod([]);
+                Eilat([]);
                 didNotWork(true);
                 isEligable(false);
                 return;
@@ -152,7 +158,7 @@
         }
         var modeOptions = {
             width: '100%',
-            height: 250,
+            height: 320,
             colors: ['#00ccff', '#cc33ff', '#ff0066', '#ffcc00', '#66ff33', '#00ccff']
         };
         //*************************** band ***************************/
@@ -168,7 +174,7 @@
         }
         var bandOptions = {
             width: '100%',
-            height: 250,
+            height: 320,
             colors: ['#3366ff', '#cc00cc', '#ff5050', '#cc9900', '#33cc33', '#33cccc', '#6666ff', '#ff9933' ]
         };
         //*************************** ref ***************************/
@@ -200,7 +206,7 @@
         var refOptions = {
             title: "QSOs per Station",
             //width: "100%",
-            height: 400,
+            height: 440,
             bar: { groupWidth: "95%" },
             legend: { position: "none" },
         };
