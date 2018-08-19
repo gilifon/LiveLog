@@ -67,8 +67,8 @@
             Ashdod(Enumerable.From(data.data).Where(function (x) { return x.station == "Ashdod (ISR001)" }).ToArray());
             Eilat(Enumerable.From(data.data).Where(function (x) { return x.station == "Eilat (ISR002)" }).ToArray());
 
-            Endorsment3(data.eligability.num_of_stations >= 3);
-            Endorsment6(data.eligability.num_of_stations == 6);
+            Endorsment3(data.eligability.num_of_stations >= 2);
+            Endorsment6(data.eligability.num_of_stations >= 5);
 
             isEligable(Endorsment3() || Endorsment6());
 
