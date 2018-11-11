@@ -43,7 +43,7 @@ function addFileToDB($filename)
 	};
 	$query = substr($query, 0, -1);
 	$query .= " ON DUPLICATE KEY UPDATE `my_call`=my_call";
-	$result = mysql_query ( $query );	
+	$result = mysqli_query ($Link, $query );	
 	if ($result)
 	{
 		//echo json_encode(array('success' => true, 'msg' => 'Thank you for sending the log. 73!', 'skips' => $skips));

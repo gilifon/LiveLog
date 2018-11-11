@@ -8,6 +8,6 @@ header('Content-type: application/json');
 $insertlog = $_POST ["insertlog"];
 
 // extract all the properties of the request
-$result = mysql_query($insertlog) or die('Error: ' . mysql_error());
+$result = mysqli_query($Link,$insertlog) or die('Error: ' . mysqli_error());
 echo json_encode('Log added!');
 ?>
