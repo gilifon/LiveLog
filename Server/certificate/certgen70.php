@@ -1,7 +1,7 @@
 <?php
-include ("../../../ws/db_holyland.inc");
-include ("../../../ws/error.inc");
-include ("../../../ws/mpdf/mpdf.php");
+include ("../db_holylanddb.inc");
+include ("../error.inc");
+include ("../mpdf/mpdf.php");
 
 ini_set ( 'display_errors', 1 );
 error_reporting ( E_ALL );
