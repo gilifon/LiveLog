@@ -23,7 +23,7 @@ if (isset ( $info ['call'] )) {
 	else
 	{
 		$result = mysqli_query($Link,"SELECT DISTINCT l.my_call,l.band, l.callsign,l.mode, l.timestamp, o.station FROM `log` l, `operators` o WHERE l.my_call = o.operator AND l.`callsign` = '$call' ORDER BY `timestamp` DESC ") or die('Error: ' . mysqli_error());
-		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call') AS 'MIX' ") or die('Error: ' . mysqli_error());
+		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call') AS 'MIX', 3 as 'num_of_stations' ") or die('Error: ' . mysqli_error());
 	}
 } 
 else 
@@ -37,6 +37,7 @@ $res["data"][] = $obj;
 while($obj = mysqli_fetch_object($eligability)) {
 $res["eligability"] = $obj;
 }
+
 echo json_encode($res);
 ?>
 
