@@ -15,19 +15,17 @@
     this.callsign = ko.observable('');
     this.didNotWork = ko.observable(false);
 
-    this.Acre = ko.observableArray();
-    this.StellaMaris = ko.observableArray();
-    this.Mikhmoret = ko.observableArray();
-    this.Jaffa = ko.observableArray();
-    this.Ashdod = ko.observableArray();
-    this.Eilat = ko.observableArray();
+    this.Capernaum = ko.observableArray();
+    this.Caesarea = ko.observableArray();
+    this.Jerusalem = ko.observableArray();
+    this.Latrun = ko.observableArray();
+    this.Massada = ko.observableArray();
 
-    this.AcreOp = ko.observableArray();
-    this.StellaMarisOp = ko.observableArray();
-    this.MikhmoretOp = ko.observableArray();
-    this.JaffaOp = ko.observableArray();
-    this.AshdodOp = ko.observableArray();
-    this.EilatOp = ko.observableArray();
+    this.CapernaumOp = ko.observableArray();
+    this.CaesareaOp = ko.observableArray();
+    this.JerusalemOp = ko.observableArray();
+    this.LatrunOp = ko.observableArray();
+    this.MassadaOp = ko.observableArray();
 
     this.entitled = ko.observableArray();
 
@@ -48,24 +46,24 @@
             if (data.data == "")
             {
                 linkList([]);
-                Acre([]);
-                StellaMaris([]);
-                Mikhmoret([]);
-                Jaffa([]);
-                Ashdod([]);
-                Eilat([]);
+                Capernaum([]);
+                Caesarea([]);
+                Jerusalem([]);
+                Latrun([]);
+                Massada([]);
+
                 didNotWork(true);
                 isEligable(false);
                 return;
             }
             linkList(data.data);
 
-            Acre(Enumerable.From(data.data).Where(function (x) { return x.station == "Acre (ISR003)" }).ToArray());
-            StellaMaris(Enumerable.From(data.data).Where(function (x) { return x.station == "Stella Maris (ISR004)" }).ToArray());
-            Mikhmoret(Enumerable.From(data.data).Where(function (x) { return x.station == "Mikhmoret (ISR006)" }).ToArray());
-            Jaffa(Enumerable.From(data.data).Where(function (x) { return x.station == "Jaffa (ISR005)" }).ToArray());
-            Ashdod(Enumerable.From(data.data).Where(function (x) { return x.station == "Ashdod (ISR001)" }).ToArray());
-            Eilat(Enumerable.From(data.data).Where(function (x) { return x.station == "Eilat (ISR002)" }).ToArray());
+            Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
+            Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
+            Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
+            Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
+            Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
+            
 
             Endorsment3(data.eligability.num_of_stations >= 3);
             Endorsment6(data.eligability.num_of_stations >= 6);
@@ -90,12 +88,12 @@
             if (data == "") {
                 return;
             }
-            AcreOp(Enumerable.From(data).Where(function (x) { return x.station == "Acre (ISR003)" }).ToArray());
-            StellaMarisOp(Enumerable.From(data).Where(function (x) { return x.station == "Stella Maris (ISR004)" }).ToArray());
-            MikhmoretOp(Enumerable.From(data).Where(function (x) { return x.station == "Mikhmoret (ISR006)" }).ToArray());
-            JaffaOp(Enumerable.From(data).Where(function (x) { return x.station == "Jaffa (ISR005)" }).ToArray());
-            AshdodOp(Enumerable.From(data).Where(function (x) { return x.station == "Ashdod (ISR001)" }).ToArray());
-            EilatOp(Enumerable.From(data).Where(function (x) { return x.station == "Eilat (ISR002)" }).ToArray());
+            CapernaumOp(Enumerable.From(data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
+            CaesareaOp(Enumerable.From(data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
+            JerusalemOp(Enumerable.From(data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
+            LatrunOp(Enumerable.From(data).Where(function (x) { return x.station == "Latrun" }).ToArray());
+            MassadaOp(Enumerable.From(data).Where(function (x) { return x.station == "Massada" }).ToArray());
+
         }).error(function (xhr, ajaxOptions, thrownError) {
 
         });
@@ -186,12 +184,18 @@
             unsordetStations.push([s, count]);
             //refData.push([s, count]);
         })
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Ashdod (ISR001)" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Eilat (ISR002)" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Acre (ISR003)" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Stella Maris (ISR004)" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jaffa (ISR005)" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Mikhmoret (ISR006)" }).ForEach(function (s) { refData.push(s); });
+
+        Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
+        Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
+        Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
+        Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
+        Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
+
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Capernaum" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Caesarea" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jerusalem" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Latrun Maris" }).ForEach(function (s) { refData.push(s); });
+        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Massada" }).ForEach(function (s) { refData.push(s); });
         
         var refDataTable = google.visualization.arrayToDataTable(refData());
         var refView = new google.visualization.DataView(refDataTable);
@@ -248,18 +252,16 @@
         },
         statisticsList: statisticsList,
         linkList: linkList,
-        Acre: Acre,
-        StellaMaris: StellaMaris,
-        Mikhmoret: Mikhmoret,
-        Jaffa: Jaffa,
-        Ashdod: Ashdod,
-        Eilat: Eilat,
-        AcreOp: AcreOp,
-        StellaMarisOp: StellaMarisOp,
-        MikhmoretOp: MikhmoretOp,
-        JaffaOp: JaffaOp,
-        AshdodOp: AshdodOp,
-        EilatOp: EilatOp,
+        Capernaum: Capernaum,
+        Caesarea: Caesarea,
+        Jerusalem: Jerusalem,
+        Latrun: Latrun,
+        Massada: Massada,
+        CapernaumOp: CapernaumOp,
+        CaesareaOp: CaesareaOp,
+        JerusalemOp: JerusalemOp,
+        LatrunOp: LatrunOp,
+        MassadaOp: MassadaOp,
         callsign: callsign,
         isEligable: isEligable,
         Endorsment3: Endorsment3,

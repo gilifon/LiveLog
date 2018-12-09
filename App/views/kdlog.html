@@ -2,23 +2,23 @@
     <p class="margin-bottom-40"></p>
 
     <h2>
-        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> Israel Lighthouse 2018 - Live log
+        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> Christmas 2018 - Live log
     </h2>
 
     <div class="row">
         <div class="col-md-3">
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
 
-                <div class="panel-heading" data-toggle="collapsex" data-target="#AshdodOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: AshdodOp().length"></span> Operator's @ Ashdod (ISR001) </h4>
+                <div class="panel-heading" data-toggle="collapsex" data-target="#CapernaumOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: CapernaumOp().length"></span> Operator's @ Capernaum </h4>
                 </div>
-                <table class="table table-striped table-hover," id="AshdodOp">
+                <table class="table table-striped table-hover," id="CapernaumOp">
                     <thead>
                         <tr>
                             <th>Operator</th>
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: AshdodOp">
+                    <tbody data-bind="foreach: CapernaumOp">
                         <tr>
                             <td>
                                 <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
@@ -29,64 +29,18 @@
                     </tbody>
                 </table>
             </div>
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
 
-                <div class="panel-heading" data-toggle="collapsex" data-target="#EilatOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: EilatOp().length"></span> Operator's @ Eilat (ISR002) </h4>
+                <div class="panel-heading" data-toggle="collapsex" data-target="#CaesareaOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: CaesareaOp().length"></span> Operator's @ Caesarea </h4>
                 </div>
-                <table class="table table-striped table-hover," id="EilatOp">
+                <table class="table table-striped table-hover," id="CaesareaOp">
                     <thead>
                         <tr>
                             <th>Operator</th>
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: EilatOp">
-                        <tr>
-                            <td>
-                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
-                                    <span data-bind="text: operator"></span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
-
-                <div class="panel-heading" data-toggle="collapsex" data-target="#AcreOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: AcreOp().length"></span> Operator's @ Acre (ISR003) </h4>
-                </div>
-                <table class="table table-striped table-hover," id="AcreOp">
-                    <thead>
-                        <tr>
-                            <th>Operator</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: AcreOp">
-                        <tr>
-                            <td>
-                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
-                                    <span data-bind="text: operator"></span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
-
-                <div class="panel-heading" data-toggle="collapsex" data-target="#StellaMarisOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: StellaMarisOp().length"></span> Operator's @ Stella Maris (ISR004) </h4>
-                </div>
-                <table class="table table-striped table-hover," id="StellaMarisOp">
-                    <thead>
-                        <tr>
-                            <th>Operator</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: StellaMarisOp">
+                    <tbody data-bind="foreach: CaesareaOp">
                         <tr>
                             <td>
                                 <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
@@ -99,18 +53,18 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
 
-                <div class="panel-heading" data-toggle="collapsex" data-target="#JaffaOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: JaffaOp().length"></span> Operator's @ Jaffa (ISR005) </h4>
+                <div class="panel-heading" data-toggle="collapsex" data-target="#JerusalemOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: JerusalemOp().length"></span> Operator's @ Jerusalem </h4>
                 </div>
-                <table class="table table-striped table-hover," id="JaffaOp">
+                <table class="table table-striped table-hover," id="JerusalemOp">
                     <thead>
                         <tr>
                             <th>Operator</th>
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: JaffaOp">
+                    <tbody data-bind="foreach: JerusalemOp">
                         <tr>
                             <td>
                                 <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
@@ -121,18 +75,42 @@
                     </tbody>
                 </table>
             </div>
-            <div data-bind="css: { 'panel margin-bottom-5 panel-yellow': true}">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
 
-                <div class="panel-heading" data-toggle="collapsex" data-target="#MikhmoretOp" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: MikhmoretOp().length"></span> Operator's @ Mikhmoret (ISR006) </h4>
+                <div class="panel-heading" data-toggle="collapsex" data-target="#LatrunOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: LatrunOp().length"></span> Operator's @ Latrun </h4>
                 </div>
-                <table class="table table-striped table-hover," id="MikhmoretOp">
+                <table class="table table-striped table-hover," id="LatrunOp">
                     <thead>
                         <tr>
                             <th>Operator</th>
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: MikhmoretOp">
+                    <tbody data-bind="foreach: LatrunOp">
+                        <tr>
+                            <td>
+                                <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
+                                    <span data-bind="text: operator"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
+
+                <div class="panel-heading" data-toggle="collapsex" data-target="#MassadaOp" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: MassadaOp().length"></span> Operator's @ Massada </h4>
+                </div>
+                <table class="table table-striped table-hover," id="MassadaOp">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: MassadaOp">
                         <tr>
                             <td>
                                 <a data-bind="attr: { href: 'https://www.qrz.com/db/' + operator}" target="_blank">
@@ -181,12 +159,12 @@
         
     <div class="row">
         <div class="col-md-4">
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Ashdod().length == 0, 'panel-green': Ashdod().length > 0 }">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Capernaum().length == 0, 'panel-green': Capernaum().length > 0 }">
 
-                <div class="panel-heading" data-toggle="collapse" data-target="#Ashdod" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: Ashdod().length"></span> QSO's with Ashdod (ISR001) <i class="icon-plus pull-right"></i></h4>
+                <div class="panel-heading" data-toggle="collapse" data-target="#Capernaum" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Capernaum().length"></span> QSO's with Capernaum <i class="icon-plus pull-right"></i></h4>
                 </div>
-                <table class="table table-striped table-hover out collapse" id="Ashdod">
+                <table class="table table-striped table-hover out collapse" id="Capernaum">
                     <thead>
                         <tr>
                             <th>Station</th>
@@ -198,7 +176,7 @@
                             <!--<th>Frequency</th>-->
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: Ashdod">
+                    <tbody data-bind="foreach: Capernaum">
                         <tr>
                             <td data-bind="text: my_call"></td>
                             <!--<td data-bind="text: call"></td>-->
@@ -212,12 +190,12 @@
                     </tbody>
                 </table>
             </div>
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Eilat().length == 0, 'panel-green': Eilat().length > 0 }">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Caesarea().length == 0, 'panel-green': Caesarea().length > 0 }">
 
-                <div class="panel-heading" data-toggle="collapse" data-target="#Eilat" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: Eilat().length"></span> QSO's with Eilat (ISR002) <i class="icon-plus pull-right"></i></h4>
+                <div class="panel-heading" data-toggle="collapse" data-target="#Caesarea" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Caesarea().length"></span> QSO's with Caesarea <i class="icon-plus pull-right"></i></h4>
                 </div>
-                <table class="table table-striped table-hover out collapse" id="Eilat">
+                <table class="table table-striped table-hover out collapse" id="Caesarea">
                     <thead>
                         <tr>
                             <th>Station</th>
@@ -229,7 +207,7 @@
                             <!--<th>Frequency</th>-->
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: Eilat">
+                    <tbody data-bind="foreach: Caesarea">
                         <tr>
                             <td data-bind="text: my_call"></td>
                             <!--<td data-bind="text: call"></td>-->
@@ -243,12 +221,12 @@
                     </tbody>
                 </table>
             </div>
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Acre().length == 0, 'panel-green': Acre().length > 0 }">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Jerusalem().length == 0, 'panel-green': Jerusalem().length > 0 }">
 
                 <div class="panel-heading" data-toggle="collapse" data-target="#Acre" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: Acre().length"></span> QSO's with Acre (ISR003) <i class="icon-plus pull-right"></i></h4>
+                    <h4 class="panel-title"><span data-bind="html: Jerusalem().length"></span> QSO's with Jerusalem <i class="icon-plus pull-right"></i></h4>
                 </div>
-                <table class="table table-striped table-hover out collapse" id="Acre">
+                <table class="table table-striped table-hover out collapse" id="Jerusalem">
                     <thead>
                         <tr>
                             <th>Station</th>
@@ -260,7 +238,7 @@
                             <!--<th>Frequency</th>-->
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: Acre">
+                    <tbody data-bind="foreach: Jerusalem">
                         <tr>
                             <td data-bind="text: my_call"></td>
                             <!--<td data-bind="text: call"></td>-->
@@ -276,12 +254,12 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': StellaMaris().length == 0, 'panel-green': StellaMaris().length > 0 }">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Latrun().length == 0, 'panel-green': Latrun().length > 0 }">
 
-                <div class="panel-heading" data-toggle="collapse" data-target="#StellaMaris" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: StellaMaris().length"></span> QSO's with Stella Maris (ISR004) <i class="icon-plus pull-right"></i></h4>
+                <div class="panel-heading" data-toggle="collapse" data-target="#Latrun" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Latrun().length"></span> QSO's with Latrun <i class="icon-plus pull-right"></i></h4>
                 </div>
-                <table class="table table-striped table-hover out collapse" id="StellaMaris">
+                <table class="table table-striped table-hover out collapse" id="Latrun">
                     <thead>
                         <tr>
                             <th>Station</th>
@@ -293,7 +271,7 @@
                             <!--<th>Frequency</th>-->
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: StellaMaris">
+                    <tbody data-bind="foreach: Latrun">
                         <tr>
                             <td data-bind="text: my_call"></td>
                             <!--<td data-bind="text: call"></td>-->
@@ -307,12 +285,12 @@
                     </tbody>
                 </table>
             </div>
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Jaffa().length == 0, 'panel-green': Jaffa().length > 0 }">
+            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Massada().length == 0, 'panel-green': Massada().length > 0 }">
 
-                <div class="panel-heading" data-toggle="collapse" data-target="#Jaffa" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: Jaffa().length"></span> QSO's with Jaffa (ISR005) <i class="icon-plus pull-right"></i></h4>
+                <div class="panel-heading" data-toggle="collapse" data-target="#Massada" style="cursor:pointer">
+                    <h4 class="panel-title"><span data-bind="html: Massada().length"></span> QSO's with Massada <i class="icon-plus pull-right"></i></h4>
                 </div>
-                <table class="table table-striped table-hover out collapse" id="Jaffa">
+                <table class="table table-striped table-hover out collapse" id="Massada">
                     <thead>
                         <tr>
                             <th>Station</th>
@@ -324,38 +302,7 @@
                             <!--<th>Frequency</th>-->
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: Jaffa">
-                        <tr>
-                            <td data-bind="text: my_call"></td>
-                            <!--<td data-bind="text: call"></td>-->
-                            <td data-bind="text: moment(timestamp,'YYYYMMDD').format('DD-MM-YYYY')"></td>
-                            <td data-bind="text: moment(timestamp,'YYYYMMDD HHmmss').format('HH:mm:ss')"></td>
-                            <td data-bind="text: mode"></td>
-                            <td data-bind="text: band"></td>
-                            <!--<td data-bind="text: freq"></td>-->
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': Mikhmoret().length == 0, 'panel-green': Mikhmoret().length > 0 }">
-
-                <div class="panel-heading" data-toggle="collapse" data-target="#Mikhmoret" style="cursor:pointer">
-                    <h4 class="panel-title"><span data-bind="html: Mikhmoret().length"></span> QSO's with Mikhmoret (ISR006) <i class="icon-plus pull-right"></i></h4>
-                </div>
-                <table class="table table-striped table-hover out collapse" id="Mikhmoret">
-                    <thead>
-                        <tr>
-                            <th>Station</th>
-                            <!--<th>Call</th>-->
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Mode</th>
-                            <th>Band</th>
-                            <!--<th>Frequency</th>-->
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: Mikhmoret">
+                    <tbody data-bind="foreach: Massada">
                         <tr>
                             <td data-bind="text: my_call"></td>
                             <!--<td data-bind="text: call"></td>-->
@@ -401,7 +348,7 @@
     </div>
         
     <div class="margin-top-40">
-        <h3>Lighthouse 2018 - Overall Statistics</h3>
+        <h3>Christmas 2018 - Overall Statistics</h3>
         <div class="row">
             <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
             <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
