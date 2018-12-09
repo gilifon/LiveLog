@@ -191,6 +191,7 @@
     <Content Include="assets\img\lighthouse_blink.gif" />
     <Content Include="assets\img\lighthouse_off.png" />
     <Content Include="assets\img\lighthouse_on.png" />
+    <Content Include="assets\img\santa.png" />
     <Content Include="assets\js\linq.min.js" />
     <Content Include="assets\js\simpleCart.min.js" />
     <Content Include="assets\plugins\bootstrap-datetimepicler\css\bootstrap-datetimepicker.min.css" />
