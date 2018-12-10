@@ -185,12 +185,6 @@
             //refData.push([s, count]);
         })
 
-        Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
-        Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
-        Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
-        Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
-        Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
-
         Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Capernaum" }).ForEach(function (s) { refData.push(s); });
         Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Caesarea" }).ForEach(function (s) { refData.push(s); });
         Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jerusalem" }).ForEach(function (s) { refData.push(s); });
