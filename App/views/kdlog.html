@@ -58,6 +58,7 @@
                             <input type="text" class="form-control" id="endorsment3" name="endorsment3" data-bind="value: Endorsment3" style="visibility:hidden;">
                             <input type="text" class="form-control" id="endorsment6" name="endorsment6" data-bind="value: Endorsment6" style="visibility:hidden;">
                         </div>
+                        <p class="margin-bottom-10"></p>
                         <button type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-certificate"></span> Congratulations! Generate Your Certificate</button>
                     </form>
                 </div>
@@ -71,7 +72,7 @@
                 <div class="col-md-12">
                     <div data-bind="css: { 'panel margin-bottom-40': true, 'panel-blue': GetLogForSES(ses_callsign)().length == 0, 'panel-green': GetLogForSES(ses_callsign)().length > 0 }">
                         <div class="panel-heading" data-toggle="collapse" data-bind="attr: {'data-target': '#'+ ses_callsign}" style="cursor:pointer">
-                            <h4 class="panel-title"><span data-bind="html: GetLogForSES(ses_callsign)().length"></span> QSO's with <span data-bind="html: qth"></span> <i class="icon-plus pull-right"></i></h4>
+                            <h4 class="panel-title"><span data-bind="html: GetLogForSES(ses_callsign)().length"></span> QSO's with <span data-bind="html: qth"></span> (<span data-bind="html: ses_callsign"></span>)<i class="icon-plus pull-right"></i></h4>
                         </div>
                         <table class="table table-striped table-hover out collapse" data-bind="attr: {'id': ses_callsign}">
                             <thead>

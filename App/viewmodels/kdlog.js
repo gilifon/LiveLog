@@ -69,6 +69,7 @@
             isEligable(false);
         });
     }
+
     this.GetLogForSES = function (ses_call) {
         return ko.observableArray(Enumerable.From(logForCall()).Where(function (x) { return x.ses_callsign == ses_call }).ToArray());
     }
@@ -102,7 +103,6 @@
         return queryResult.length;
     }
     
-
     this.loadData = function () {
 
         $.ajax({
@@ -175,18 +175,19 @@
         //*************************** ref ***************************/
         this.unsordetStations = ko.observableArray([]);
         refData.push(['Station', 'QSOs']);
-        Enumerable.From(statisticsList()).Where(whereClause).Select("$.station").OrderBy().Distinct().ForEach(function (s, index) {
-            var count = Enumerable.From(statisticsList()).Where(function (x) { return x.station == s }).Where(whereClause).ToArray().length;
+        Enumerable.From(statisticsList()).Where(whereClause).Select("$.ses_callsign").OrderBy().Distinct().ForEach(function (s, index) {
+            var count = Enumerable.From(statisticsList()).Where(function (x) { return x.ses_callsign == s }).Where(whereClause).ToArray().length;
             if (s == null) s = " "
-            unsordetStations.push([s, count]);
-            //refData.push([s, count]);
+            //unsordetStations.push([s, count]);
+            refData.push([s, count]);
         })
 
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Capernaum" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Caesarea" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jerusalem" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Latrun Maris" }).ForEach(function (s) { refData.push(s); });
-        Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Massada" }).ForEach(function (s) { refData.push(s); });
+
+        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Capernaum" }).ForEach(function (s) { refData.push(s); });
+        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Caesarea" }).ForEach(function (s) { refData.push(s); });
+        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jerusalem" }).ForEach(function (s) { refData.push(s); });
+        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Latrun Maris" }).ForEach(function (s) { refData.push(s); });
+        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Massada" }).ForEach(function (s) { refData.push(s); });
         
         var refDataTable = google.visualization.arrayToDataTable(refData());
         var refView = new google.visualization.DataView(refDataTable);
@@ -223,7 +224,6 @@
         return true;
     }
 
-
     var vm = {
         activate: function () {
             //shell.selectedSubMenu('ham');
@@ -237,29 +237,11 @@
         },
         compositionComplete: function () {
             jwerty.key('enter', function () {
-                GetWorkedSections();
-                
+                GetLogForCall();
             }, that);
         },
-        statisticsList: statisticsList,
-        Capernaum: Capernaum,
-        Caesarea: Caesarea,
-        Jerusalem: Jerusalem,
-        Latrun: Latrun,
-        Massada: Massada,
-        callsign: callsign,
-        isEligable: isEligable,
-        Endorsment3: Endorsment3,
-        Endorsment6: Endorsment6,
-        didNotWork: didNotWork,
-        entitled: entitled,
         shell: shell
     };
-
-    //Note: This module exports a function. That means that you, the developer, can create multiple instances.
-    //This pattern is also recognized by Durandal so that it can create instances on demand.
-    //If you wish to create a singleton, you should export an object instead of a function.
-    //See the "flickr" module for an example of object export.
 
     return vm;
 });
