@@ -1,7 +1,7 @@
 ﻿define(['viewmodels/shell'], function (shell) {
 
     //properties
-    this.linkList = ko.observableArray();
+    this.logForCall = ko.observableArray();
     this.statisticsList = ko.observableArray();
     this.modeData = ko.observableArray();
     this.bandData = ko.observableArray();
@@ -21,11 +21,8 @@
     this.Latrun = ko.observableArray();
     this.Massada = ko.observableArray();
 
-    this.CapernaumOp = ko.observableArray();
-    this.CaesareaOp = ko.observableArray();
-    this.JerusalemOp = ko.observableArray();
-    this.LatrunOp = ko.observableArray();
-    this.MassadaOp = ko.observableArray();
+    this.Operators = ko.observableArray();
+    this.SES = ko.observableArray();
 
     this.entitled = ko.observableArray();
 
@@ -35,7 +32,7 @@
 
     var that = this;
 
-    this.GetWorkedSections = function () {
+    this.GetLogForCall = function () {
         if (callsign() == "") return;
         $.ajax({
             type: "POST",
@@ -45,24 +42,18 @@
 
             if (data.data == "")
             {
-                linkList([]);
-                Capernaum([]);
-                Caesarea([]);
-                Jerusalem([]);
-                Latrun([]);
-                Massada([]);
-
+                logForCall([]);              
                 didNotWork(true);
                 isEligable(false);
                 return;
             }
-            linkList(data.data);
+            logForCall(data.data);
 
-            Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
-            Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
-            Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
-            Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
-            Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
+            //Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
+            //Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
+            //Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
+            //Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
+            //Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
             
 
             Endorsment3(data.eligability.num_of_stations >= 3);
@@ -73,10 +64,13 @@
             didNotWork(false);
         }).error(function (xhr, ajaxOptions, thrownError) {
             //alert(jQuery.parseJSON(xhr.responseText).error);
-            linkList([]);
+            logForCall([]);
             didNotWork(true);
             isEligable(false);
         });
+    }
+    this.GetLogForSES = function (ses_call) {
+        return ko.observableArray(Enumerable.From(logForCall()).Where(function (x) { return x.ses_callsign == ses_call }).ToArray());
     }
     
     this.GetOperators = function () {
@@ -88,20 +82,23 @@
             if (data == "") {
                 return;
             }
-            CapernaumOp(Enumerable.From(data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
-            CaesareaOp(Enumerable.From(data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
-            JerusalemOp(Enumerable.From(data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
-            LatrunOp(Enumerable.From(data).Where(function (x) { return x.station == "Latrun" }).ToArray());
-            MassadaOp(Enumerable.From(data).Where(function (x) { return x.station == "Massada" }).ToArray());
-
+            Operators(data);
         }).error(function (xhr, ajaxOptions, thrownError) {
 
         });
     }
 
+    this.GetDistinctSES = function () {
+        return ko.observableArray(Enumerable.From(Operators()).Distinct('$.ses_callsign').ToArray());
+    }
+
+    this.GetOperatorsForSES = function(ses_call){
+        return ko.observableArray(Enumerable.From(Operators()).Where(function (x) { return x.ses_callsign == ses_call }).ToArray());
+    }
+
     this.IsSectionExist = function(section)
     {
-        var queryResult = Enumerable.From(linkList).Where(function (x) { return x.section == section }).ToArray();
+        var queryResult = Enumerable.From(logForCall).Where(function (x) { return x.section == section }).ToArray();
         return queryResult.length;
     }
     
@@ -245,17 +242,11 @@
             }, that);
         },
         statisticsList: statisticsList,
-        linkList: linkList,
         Capernaum: Capernaum,
         Caesarea: Caesarea,
         Jerusalem: Jerusalem,
         Latrun: Latrun,
         Massada: Massada,
-        CapernaumOp: CapernaumOp,
-        CaesareaOp: CaesareaOp,
-        JerusalemOp: JerusalemOp,
-        LatrunOp: LatrunOp,
-        MassadaOp: MassadaOp,
         callsign: callsign,
         isEligable: isEligable,
         Endorsment3: Endorsment3,
