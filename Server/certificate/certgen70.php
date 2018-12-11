@@ -1,10 +1,13 @@
 <?php
 include ("../db_holylanddb.inc");
 include ("../error.inc");
-include ("../mpdf/mpdf.php");
+//include ("../mpdf/mpdf.php");
+//require_once __DIR__ . '../vendor/autoload.php';
+include ("../vendor/autoload.php");
 
 ini_set ( 'display_errors', 1 );
 error_reporting ( E_ALL );
+
 
 if (isset ( $_POST ['callsign'] )) {
 	$callsign = strtoupper(trim($_POST['callsign']));
@@ -36,7 +39,8 @@ if (isset ( $_POST ['mix'] )) {
 $stylesheet = file_get_contents ( 'israel70.css' );
 
 //create new mPDF instance -> this object writes html to pdf files
-$mpdf = new mPDF ( '', 'A4-L', '16', 'Times', 0, 0, 0, 0, 9, 9 );
+//$mpdf = new \Mpdf\Mpdf();//( '', 'A4-L', '16', 'Times', 0, 0, 0, 0, 9, 9 );
+$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8','orientation' => 'L']);
 $mpdf->SetImportUse ();
 $mpdf->AddPage ();
 $pagecount = $mpdf->SetSourceFile ( 'israel70.pdf' );

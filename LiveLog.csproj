@@ -173,6 +173,7 @@
     <Content Include="assets\css\themes\headers\header2-light.css" />
     <Content Include="assets\css\themes\headers\header2.css" />
     <Content Include="assets\css\themes\light.css" />
+    <Content Include="assets\img\decoration.png" />
     <Content Include="assets\img\icons\social\dropbox.png" />
     <Content Include="assets\img\icons\social\facebook.png" />
     <Content Include="assets\img\icons\social\github.png" />

@@ -27,8 +27,11 @@
     this.entitled = ko.observableArray();
 
     this.isEligable = ko.observable(false);
-    //this.Endorsment3 = ko.observable(false);
-    //this.Endorsment6 = ko.observable(false);
+
+    this.cw = ko.observable(false);
+    this.ssb = ko.observable(false);
+    this.digi = ko.observable(false);
+    this.mix = ko.observable(false);
 
     var that = this;
 
@@ -48,6 +51,10 @@
                 return;
             }
             logForCall(data.data);
+            cw(data.eligability.CW==1);
+            ssb(data.eligability.SSB==1);
+            digi(data.eligability.DIGI==1);
+            mix(data.eligability.MIX==1);
             isEligable(data.eligability.SSB || data.eligability.DIGI || data.eligability.CW || data.eligability.MIX);
 
             didNotWork(false);
