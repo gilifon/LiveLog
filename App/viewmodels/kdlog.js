@@ -27,8 +27,8 @@
     this.entitled = ko.observableArray();
 
     this.isEligable = ko.observable(false);
-    this.Endorsment3 = ko.observable(false);
-    this.Endorsment6 = ko.observable(false);
+    //this.Endorsment3 = ko.observable(false);
+    //this.Endorsment6 = ko.observable(false);
 
     var that = this;
 
@@ -48,18 +48,7 @@
                 return;
             }
             logForCall(data.data);
-
-            //Capernaum(Enumerable.From(data.data).Where(function (x) { return x.station == "Capernaum" }).ToArray());
-            //Caesarea(Enumerable.From(data.data).Where(function (x) { return x.station == "Caesarea" }).ToArray());
-            //Jerusalem(Enumerable.From(data.data).Where(function (x) { return x.station == "Jerusalem" }).ToArray());
-            //Latrun(Enumerable.From(data.data).Where(function (x) { return x.station == "Latrun" }).ToArray());
-            //Massada(Enumerable.From(data.data).Where(function (x) { return x.station == "Massada" }).ToArray());
-            
-
-            Endorsment3(data.eligability.num_of_stations >= 3);
-            Endorsment6(data.eligability.num_of_stations >= 6);
-
-            isEligable(Endorsment3() || Endorsment6());
+            isEligable(data.eligability.SSB || data.eligability.DIGI || data.eligability.CW || data.eligability.MIX);
 
             didNotWork(false);
         }).error(function (xhr, ajaxOptions, thrownError) {
@@ -181,13 +170,6 @@
             //unsordetStations.push([s, count]);
             refData.push([s, count]);
         })
-
-
-        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Capernaum" }).ForEach(function (s) { refData.push(s); });
-        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Caesarea" }).ForEach(function (s) { refData.push(s); });
-        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Jerusalem" }).ForEach(function (s) { refData.push(s); });
-        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Latrun Maris" }).ForEach(function (s) { refData.push(s); });
-        //Enumerable.From(unsordetStations()).Where(function (x) { return x[0] == "Massada" }).ForEach(function (s) { refData.push(s); });
         
         var refDataTable = google.visualization.arrayToDataTable(refData());
         var refView = new google.visualization.DataView(refDataTable);
