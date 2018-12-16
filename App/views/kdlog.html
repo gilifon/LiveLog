@@ -2,7 +2,7 @@
     <p class="margin-bottom-40"></p>
 
     <h2>
-        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> Christmas 2019 - Live log
+        <i id="loadingImage" class="icon-spinner icon-2x icon-spin centered "></i> New Year 2019 - Live log
     </h2>
     <!-- List of operators for each station -->
     <div class="row" data-bind="foreach: GetDistinctSES()">
@@ -33,20 +33,18 @@
     </div>
     <div class="row margin-bottom-20">
         <div class="col-md-2 hidden-xs hidden-sm">
-            <div style="background-image:url(assets/img/santa.png); background-repeat:no-repeat; height: 220px; position:relative; margin-top:20px"></div>
+            <div style="background-image:url(assets/img/2019.png); background-repeat:no-repeat; height: 220px; position:relative; margin-top:20px"></div>
         </div>
         <div class="col-md-8">
             <h3>Enter your callsing to check the log</h3>
             <div class="row">
-                <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="col-md-10 col-sm-10 col-xs-10">
                     <input class="form-control" data-bind="value: callsign, valueUpdate: 'afterkeydown'" placeholder="Your Callsign" type="text" tabindex="1" style="text-transform: uppercase;" />
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-4">
                     <button id="CheckBtn" data-bind="click: GetLogForCall" type="button" class="btn btn-info"><span class="glyphicon glyphicon-certificate"></span> Check</button>
                 </div>
-                <div class="col-md-2 hidden-xs hidden-sm">
-                    <!--<img src="././assets/img/israel70.png" alt="Alternate Text" width="50%"/>-->
-                </div>
+               
             </div>
             <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
             <div class="row margin-bottom-20" data-bind="visible:isEligable">
@@ -66,7 +64,7 @@
             </div>
         </div>
         <div class="col-md-2 hidden-xs hidden-sm">
-            <div style="background-image:url(assets/img/santa.png); background-repeat:no-repeat; height: 220px; position:relative; margin-top:20px"></div>
+            <div style="background-image:url(assets/img/2019.png); background-repeat:no-repeat; height: 220px; position:relative; margin-top:20px"></div>
         </div>
     </div>
 
@@ -109,7 +107,7 @@
         </div>
         <div class="col-md-4">
             <div style="background-image:url(assets/img/israel_map.jpg); background-size: 260px; background-repeat:no-repeat; height:640px; position:relative">
-                <a href="https://en.wikipedia.org/wiki/Akko_Light" target="_blank" title="Capernaum">
+                <!--<a href="https://en.wikipedia.org/wiki/Akko_Light" target="_blank" title="Capernaum">
                     <div style="position:absolute; top:46px; left:195px" data-bind="if: Capernaum().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
                     <div style="position:absolute; top:46px; left:195px" data-bind="if: Capernaum().length == 0"><img src="assets/img/santa_red.png" alt="Alternate Text" width="15" /></div>
                 </a>
@@ -128,13 +126,13 @@
                 <a href="https://en.wikipedia.org/wiki/Ashdod_Light" target="_blank" title="Massada">
                     <div style="position:absolute; top:310px; left:160px" data-bind="if: Massada().length > 0"><img src="assets/img/lighthouse_blink.gif" alt="Alternate Text" width="15" /></div>
                     <div style="position:absolute; top:310px; left:160px" data-bind="if: Massada().length == 0"><img src="assets/img/santa_red.png" alt="Alternate Text" width="15" /></div>
-                </a>
+                </a>-->
             </div>
         </div>
     </div>
 
     <div class="margin-top-40">
-        <h3>Christmas 2019 - Overall Statistics</h3>
+        <h3>New Year 2019 - Overall Statistics</h3>
         <div class="row">
             <div class="col-md-4">Total QSOs: <label data-bind="text: totalQSO"></label></div>
             <div class="col-md-4">Unique Calls: <label data-bind="text: uniqueCall"></label></div>
