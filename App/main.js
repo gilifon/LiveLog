@@ -16,7 +16,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Christmas 2018 - Live Log';
+    app.title = 'Christmas 2019 - Live Log';
     app.version = "1.0";
 
     app.configurePlugins({
