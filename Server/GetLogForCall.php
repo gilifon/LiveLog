@@ -18,12 +18,12 @@ if (isset ( $info ['call'] )) {
 	{
 		$call = substr( $call, 1, strlen($call)-1);
 		$result = mysqli_query($Link,"SELECT DISTINCT `my_call`,`band`,`callsign`,`mode` FROM `log`` where `callsign` = '$call' order by `timestamp` desc ") or die('Error: ' . mysqli_error());
-		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AS 'MIX' ") or die('Error: ' . mysqli_error());
+		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AS 'MIX' ") or die('Error: ' . mysqli_error());
 	}
 	else
 	{
 		$result = mysqli_query($Link,"SELECT DISTINCT l.my_call,l.band, l.callsign,l.mode, l.timestamp, ses.callsign AS ses_callsign FROM `log` l, `special_event_station` ses WHERE l.my_call = ses.callsign AND l.`callsign` = '$call' ORDER BY `timestamp` DESC ") or die('Error: ' . mysqli_error());
-		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 3 FROM `log` WHERE `callsign` = '$call') AS 'MIX'") or die('Error: ' . mysqli_error());
+		$eligability = mysqli_query($Link,"SELECT (SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'ssb' OR `mode` = 'usb' OR `mode` = 'lsb' OR `mode` = 'ph' )) AS 'SSB', (SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND `mode` = 'cw') AS 'CW',(SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call' AND (`mode` = 'rtty' OR `mode` = 'psk')) AS 'DIGI',(SELECT COUNT(DISTINCT `my_call`) >= 2 FROM `log` WHERE `callsign` = '$call') AS 'MIX'") or die('Error: ' . mysqli_error());
 	}
 } 
 else 

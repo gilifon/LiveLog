@@ -55,7 +55,7 @@
             ssb(data.eligability.SSB==1);
             digi(data.eligability.DIGI==1);
             mix(data.eligability.MIX==1);
-            isEligable(data.eligability.SSB || data.eligability.DIGI || data.eligability.CW || data.eligability.MIX);
+            isEligable(data.eligability.SSB == 1 || data.eligability.DIGI == 1 || data.eligability.CW == 1 || data.eligability.MIX == 1);
 
             didNotWork(false);
         }).error(function (xhr, ajaxOptions, thrownError) {
