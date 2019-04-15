@@ -1,0 +1,1 @@
+define(["viewmodels/shell"],function(g){this.linkList=ko.observableArray();var e={activate:function(){$.ajax({type:"POST",url:"./Server/GetAudit.php"}).done(function(g){linkList(g)}).error(function(){linkList([])})},compositionComplete:function(){},linkList:linkList,shell:g};return e});

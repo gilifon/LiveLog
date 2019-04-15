@@ -1,0 +1,1 @@
+define(function(){var g=function(g,e,n){return $.ajax({type:"GET",url:g,data:e,contentType:"application/json",headers:n})},e=function(g,e,n){return $.ajax({url:g,data:e,type:"POST",headers:n})},n={get:g,post:e};return n});

@@ -1,0 +1,31 @@
+﻿<div class="container">
+
+    <div data-bind="visible:!authorized()">
+        <p class="margin-bottom-40"></p>
+        <h2>Welcome to the 'Lighthouse 2018' log upload page</h2>
+        <p class="margin-bottom-40"></p>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <input class="form-control" data-bind="value: password, valueUpdate: 'afterkeydown'" placeholder="Admin Password" type="password" tabindex="1" />
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                <button id="CheckBtn" data-bind="click: Authenticate" type="button" class="btn btn-danger">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="visible:authorized">
+        <p class="margin-bottom-40"></p>
+        <form action="Server/israel70loadadif.php" method="post" enctype="multipart/form-data">
+            <h2>Select log file for upload:</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-info">
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <input type="submit" value="Upload Log" name="submit" class="btn btn-danger">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
