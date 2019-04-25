@@ -6,7 +6,7 @@
     </h2>
     <!-- List of operators for each station -->
     <div class="row" data-bind="foreach: GetDistinctSES()">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div data-bind="css: { 'panel margin-bottom-5 panel-red': true}">
 
                 <div class="panel-heading">
@@ -46,7 +46,7 @@
             <div data-bind="visible:didNotWork"><span class="glyphicon glyphicon-star"></span> we did not work yet.. Hope to hear you on the air soon!</div>
             <div class="row margin-bottom-20" data-bind="visible:isEligable">
                 <div class="col-md-12">
-                    <form method="post" action="https://iarc.org/livelog/Server/certificate/certgen70.php" target="_blank">
+                    <form method="post" action="https://iarc.org/livelog/Server/certificate/award_generator.php" target="_blank">
                         <div style="display:none">
                             <input type="text" class="form-control" id="callsign" name="callsign" data-bind="value: callsign" style="visibility:hidden;">
                             <input type="text" class="form-control" id="cw" name="cw" data-bind="value: cw" style="visibility:hidden;">
@@ -150,13 +150,13 @@
         </div>
     </div>
 
-    <!--<div class="row">
+    <div class="row">
         <div class="col-md-12">
             <h3><label data-bind="text: entitled().length"></label> are entitled for certificate</h3>
         </div>
     </div>
     <div class="row" data-bind="foreach: entitled">
         <div class="col-md-2" data-bind="text: callsign"></div>
-    </div>-->
+    </div>
 </div>
 

@@ -171,7 +171,7 @@
         //*************************** ref ***************************/
         this.unsordetStations = ko.observableArray([]);
         refData.push(['Station', 'QSOs']);
-        Enumerable.From(statisticsList()).Where(whereClause).Select("$.ses_callsign").OrderBy().Distinct().ForEach(function (s, index) {
+        Enumerable.From(statisticsList()).Where(whereClause).Select("$.ses_callsign").OrderBy("$.id").Distinct().ForEach(function (s, index) {
             var count = Enumerable.From(statisticsList()).Where(function (x) { return x.ses_callsign == s }).Where(whereClause).ToArray().length;
             if (s == null) s = " "
             //unsordetStations.push([s, count]);
